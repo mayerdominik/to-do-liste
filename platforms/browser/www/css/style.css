@@ -1,0 +1,18 @@
+form .ui-input-text {
+    display : inline-block;
+    width   : 65%;
+    vertical-align : middle;
+}
+form > .ui-btn {
+    display : inline-block;
+    width   : 3%;
+    vertical-align : middle;
+}
+@media all and (max-width:100px) {
+    form .ui-input-text {
+        width   : 100%;
+    }
+    form > .ui-btn {
+        width   : 100%;
+    }
+}

@@ -23,6 +23,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -39,7 +40,7 @@
             <div data-role="footer">
                 <label for="textarea-4" class="ui-hidden-accessible">Textarea:</label>
                 <textarea cols="40" rows="8" name="textarea-4" id="textarea-4">Textarea</textarea>
-                <a href="newtask" data-role="button" >New task</a>
+                <a href="#newtask" data-role="button" >New task</a>
             </div>
         </div>
         <div data-role="page" id="newtask">
@@ -47,16 +48,18 @@
                 <h1>Remind me</h1>
             </div>
             <div data-role="main">
-             <form>
-                    Datum: <input type="text" data-role="date">
-                    Uhrzeit: <label for="time-2">Time: data-clear-btn="true"</label>
-                    <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
-             </form>
-                
+                <form>
+                <label for="date">Datum:</label>
+                <input type="text" data-role="date">
+                <label for="time-2">Uhrzeit:</label>
+                <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
+                <label for="text-1">Kategorie:</label>
+                        <input type="text" name="text-1" id="category" value="">
+                        <a href="" class="ui-btn-icon-right" data-role="button" type="submit" data-icon="plus" id="addcategory" data-theme="b"></a>
+                </form>
             </div>
             <div data-role="footer">
-                <label for="textarea-4" class="ui-hidden-accessible">Textarea:</label>
-                <textarea cols="40" rows="8" name="textarea-4" id="textarea-4">Textarea</textarea>
+                
             </div>
         </div>
     </body>
