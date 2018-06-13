@@ -19,7 +19,12 @@
 -->
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" 
+            content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; 
+            style-src 'self' 'unsafe-inline'; 
+            media-src *; 
+            script-src 'self' 'unsafe-inline';
+            img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -27,15 +32,21 @@
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/index.js"></script>
         <title>Hello World</title>
+        
     </head>
     <body>
-        <div data-role="page" id="home">
+        <div data-role="page" id="test">
             <div data-role="header">
                 <h1>Remind me</h1>
             </div>
             <div data-role="main">
-
+                    <div data-role="main">
+                            <p><img src="img/logo.png" alt="image" id="photo" /></p>
+                            <p><button id="btn">Take Picture</button></p>
+                            <p id="msg"></p>
+                    </div>
             </div>
             <div data-role="footer">
                 <label for="textarea-4" class="ui-hidden-accessible">Textarea:</label>
@@ -43,24 +54,62 @@
                 <a href="#newtask" data-role="button" >New task</a>
             </div>
         </div>
-        <div data-role="page" id="newtask">
+        <div data-role="page">
             <div data-role="header">
                 <h1>Remind me</h1>
             </div>
-            <div data-role="main">
                 <form>
                 <label for="date">Datum:</label>
-                <input type="text" data-role="date">
+                <input type="date">
                 <label for="time-2">Uhrzeit:</label>
                 <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
                 <label for="text-1">Kategorie:</label>
                         <input type="text" name="text-1" id="category" value="">
-                        <a href="" class="ui-btn-icon-right" data-role="button" type="submit" data-icon="plus" id="addcategory" data-theme="b"></a>
+                        <a href="" data-role="button" type="submit" data-icon="plus" data-iconpos="notext" id="addcategory" data-theme="b"></a>
                 </form>
+                <div>
+                    <p><img src="img/gallery.png" alt="image" id="photo" /></p>
+                    <p><button id="btn">Take Picture</button></p>
+                    <p id="msg"></p>
+                    <img style="width:10%" src="img/gallery.png">
+                </div>
             </div>
             <div data-role="footer">
                 
             </div>
         </div>
+       
+        <script type="text/javascript" src="cordova.js"></script>
+        <script>
+            let app = {
+                init: function(){
+                    document.getElementById('btn').addEventListener('click', app.takephoto);
+                },
+                takephoto: function(){
+                    let opts = {
+                        quality: 80,
+                        destinationType: Camera.DestinationType.FILE_URI,
+                        sourceType: Camera.PictureSourceType.CAMERA,
+                        mediaType: Camera.MediaType.PICTURE,
+                        encodingType: Camera.EncodingType.JPEG,
+                        cameraDirection: Camera.Direction.BACK,
+                        targetWidth: 300,
+                        targetHeight: 400
+                    };
+                    
+                    navigator.camera.getPicture(app.ftw, app.wtf, opts);
+                },
+                ftw: function(imgURI){
+                    document.getElementById('msg').textContent = imgURI;
+                    document.getElementById('photo').src = imgURI;
+                    
+                },
+                wtf: function(msg){
+                    document.getElementById('msg').textContent = msg;
+                }
+            };
+            
+            document.addEventListener('deviceready', app.init);
+        </script>
     </body>
 </html>

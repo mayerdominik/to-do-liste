@@ -7,6 +7,15 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.hello"
     }

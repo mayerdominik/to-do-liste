@@ -5,7 +5,7 @@ form .ui-input-text {
 }
 form > .ui-btn {
     display : inline-block;
-    width   : 3%;
+    width   : 10%;
     vertical-align : middle;
 }
 @media all and (max-width:100px) {
