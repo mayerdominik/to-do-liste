@@ -16,6 +16,9 @@
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "com.example.hello"
     },
+    "cordova-plugin-speechrecognition": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.hello"
     }

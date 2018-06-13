@@ -34,6 +34,7 @@
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/speech.js"></script>
         <title>Hello World</title>
         
     </head>
@@ -43,10 +44,10 @@
                 <h1>Remind me</h1>
             </div>
             <div data-role="main">
-                   
+                   <button id="speechbtn">Record</button>
             </div>
             <div data-role="footer">
-                <label for="textarea-4" class="ui-hidden-accessible">Textarea:</label>
+                <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Textarea:</label>
                 <textarea cols="40" rows="8" name="textarea-4" id="textarea-4">Textarea</textarea>
                 <a href="#newtask" data-role="button" >New task</a>
             </div>

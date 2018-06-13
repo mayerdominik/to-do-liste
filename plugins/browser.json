@@ -7,7 +7,7 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.example.hello"
     },
     "cordova-plugin-file": {
@@ -16,7 +16,10 @@
     "cordova-plugin-media-capture": {
       "PACKAGE_NAME": "com.example.hello"
     },
-    "cordova-plugin-camera": {
+    "cordova-plugin-speechrecognition": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.hello"
     }
   },
