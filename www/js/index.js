@@ -3,7 +3,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     document.getElementById('btn').addEventListener('click', takephoto);
-    document.getElementById('choosephoto').addEventListener('click', openFilePicker);
+    document.getElementById('photo').addEventListener('click', openFilePicker);
     document.getElementById('newtask').addEventListener('click', sendtext);
 }
 
