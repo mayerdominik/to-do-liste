@@ -37,6 +37,6 @@ function openFilePicker(selection) {
         navigator.camera.getPicture(ftw, wtf, options);
 }
 function sendtext() {
-    let text = document.getElementById("textarea-4").textContent;
-    document.getElementById("textarea-5").textContent=text;
+    let text = document.getElementById("textarea-4").value;
+    document.getElementById("textarea-5").value=text;
 }
