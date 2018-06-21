@@ -23,6 +23,7 @@ function takephoto(){
 function ftw (imgURI){
         document.getElementById('msg').textContent = imgURI;
         document.getElementById('photo').src = imgURI;
+        document.getElementById('photo').style = "width:100%"
         
     }
 function wtf (msg){

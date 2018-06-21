@@ -1,22 +1,44 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    document.getElementById('speechbtn').addEventListener('click', isRecognitionAvailable);
+    document.getElementById('speechbtn').addEventListener('click', startRecognition);
 }
-function isRecognitionAvailable() {
-    window.plugins.speechRecognition.isRecognitionAvailable(successCallback, errorCallback)
+// Handle results
+
+function startRecognition(){
+    window.plugins.speechRecognition.startListening(function(result){
+        // Show results in the console
+        console.log(result);
+    }, function(err){
+        console.error(err);
+    }, {
+        language: "en-US",
+        showPopup: true
+    });
 }
-function startRecognition() {
-    let options = {
-        language: "de-De"
-      }
-      window.plugins.speechRecognition.startListening(success, error, options)
-}
-function success() {
-    document.getElementById("textarea").textContent = text;
-}
-function successCallback() {
-    startRecognition()
-}
-function errorCallback() {
-    document.getElementById("textarea").textContent = "This didn't work";
-}
+
+// Verify if recognition is available
+window.plugins.speechRecognition.isRecognitionAvailable(function(available){
+    if(!available){
+        console.log("Sorry, not available");
+    }
+
+    // Check if has permission to use the microphone
+    window.plugins.speechRecognition.hasPermission(function (isGranted){
+        if(isGranted){
+            startRecognition();
+        }else{
+            // Request the permission
+            window.plugins.speechRecognition.requestPermission(function (){
+                // Request accepted, start recognition
+                startRecognition();
+            }, function (err){
+                console.log(err);
+            });
+        }
+    }, function(err){
+        console.log(err);
+    });
+}, function(err){
+    console.log(err);
+});
+
