@@ -41,7 +41,7 @@
     <body>
         <div data-role="page" id="test">
             <div data-role="header">
-                <h1>Remind me</h1>
+                <h1>Willkommen</h1>
             </div>
             <div data-role="main">
                    <button id="speechbtn">Record</button>
@@ -49,12 +49,13 @@
             <div data-role="footer">
                 <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Textarea:</label>
                 <textarea cols="40" rows="8" name="textarea-4" id="textarea-4">Textarea</textarea>
-                <a href="#newtask" data-role="button" >New task</a>
+                <a href="#newtask" data-role="button" >Neue Aufgabe</a>
+                <a href="#categories" data-role="button" >Kategorien</a>
             </div>
         </div>
         <div data-role="page" id="newtask">
             <div data-role="header">
-                <h1>Remind me</h1>
+                <h1>Neue Aufgabe anlegen</h1>
             </div>
             <div data-role="main">         
                 <form>
@@ -65,8 +66,15 @@
                     <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
                     <label for="text-1">Kategorie:</label>
                         <input type="text" name="text-1" id="category" value="">
-                        <a href="" data-role="button" type="submit" data-icon="plus" data-iconpos="notext" id="addcategory" data-theme="b"></a>
-                    <button id="btn">Take Picture</button>
+                        <a href="#popupcat" data-rel="popup" data-position-to="window" data-role="button" data-icon="plus" data-iconpos="notext" id="addcategory" data-theme="b" data-transition="pop" ></a>
+                        <div data-role="popup" class="popupcat" id="popupcat" data-theme="a" class="ui-corner-all">
+                            <form>
+                                <h2>Neue Kategorie erstellen</h2>
+                                <input type="text" class="newcat" value="" placeholder="Name der Kategorie" data-theme="a">
+                                <button id="cat" class="ui-btn ui-corner-all" type="submit" onclick="createCat();">Erstellen</button>
+                            </form>
+                        </div>
+                        <button id="btn">Take Picture</button>
                 </form>
                 <div>
                     <p id="msg"></p>
@@ -77,7 +85,27 @@
                 
             </div>
         </div>
-        
+
+        <div data-role="page" id="categories">
+            <div data-role="header">
+                <h1>Kategorien</h1>
+            </div>
+            <div data-role="main">
+                <ul data-role="listview" id="categorylist">
+                    <li data-role="list-divider">1. Kategorie</li>
+                </ul>
+            </div>
+            <div data-role="footer">
+                <a href="#popupcat2" data-rel="popup" data-position-to="window" data-role="button" id="addcategory2" data-transition="pop" >Neu</a>
+                <div data-role="popup" class="popupcat" id="popupcat2" data-theme="a" class="ui-corner-all">
+                    <form>
+                        <h2>Neue Kategorie erstellen</h2>
+                        <input type="text" class="newcat" id="newcat" value="" placeholder="Name der Kategorie" data-theme="a">
+                        <button id="cat2" class="ui-btn ui-corner-all" type="submit" onclick="createCat();">Erstellen</button>
+                    </form>                    
+                </div>
+            </div>
+        </div>
         
     </body>
 </html>
