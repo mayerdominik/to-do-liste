@@ -41,14 +41,14 @@ function sendtext() {
     document.getElementById("textarea-5").value=text;
 }
 function createCat() {
-        var newCat = "Test Bitte";//$('#newcat').val();
+        var newCat = ('#newcat').val();
     
         if(newCat != '') {
             $('#categorylist').append('<li data-role="list-divider">' + newCat + '</li>').listview('refresh');
             $('#newcat').val('');
             $( "#popupcat2" ).popup( "close" );
         } else {
-            alert('Bitte einen Kategorienamen eingeben');   
+            alert('Bitte einen Kategorienamen eingeben');
         }
         
     }
