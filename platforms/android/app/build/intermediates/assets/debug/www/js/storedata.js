@@ -7,12 +7,13 @@ function onDeviceReady() {
 function saveData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
     db.transaction(function (tx) {   
-        tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id INTEGER PRIMARY KEY AUTOINCREMENT, datum integer, uhrzeit integer, text, kategorie)'); 
+        tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id INTEGER PRIMARY KEY AUTOINCREMENT, datum integer, uhrzeit integer, text, kategorie, bildlink)'); 
         var datum = document.getElementById("date").value;
         var uhrzeit = document.getElementById("time-2").value;
         var text = document.getElementById("textarea-5").value;
         var kategorie = document.getElementById("category").value;
-        tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie) VALUES (?, ?, ?, ?)', [datum, uhrzeit, text, kategorie]); 
+        var bildlink = document.getElementById("msg").textContent;
+        tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie, bildlink) VALUES (?, ?, ?, ?, ?)', [datum, uhrzeit, text, kategorie, bildlink]); 
         msg = '<p>Log message created and row inserted.</p>'; 
         document.querySelector('#status').innerHTML =  msg; 
      }) 
@@ -42,6 +43,7 @@ function showtask(id) {
            for (i = 0; i < len; i++) { 
               msg = "<p" + results.rows.item(i).text + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</p>";
               document.querySelector('#zeig').innerHTML =  msg;
+              document.getElementById('zeigephoto').src = results.rows.item(i).bildlink;
            }
            $("body").pagecontainer("change", "#onetask"); 
         }, null); 
