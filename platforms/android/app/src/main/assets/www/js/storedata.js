@@ -7,7 +7,7 @@ function onDeviceReady() {
 function saveData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
     db.transaction(function (tx) {   
-        tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, datum integer, uhrzeit integer, text, kategorie)'); 
+        tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id INTEGER PRIMARY KEY AUTOINCREMENT, datum integer, uhrzeit integer, text, kategorie)'); 
         var datum = document.getElementById("date").value;
         var uhrzeit = document.getElementById("time-2").value;
         var text = document.getElementById("textarea-5").value;
@@ -26,7 +26,7 @@ function loadData() {
            document.querySelector('#status').innerHTML +=  msg;
   
            for (i = 0; i < len; i++) { 
-              msg = "<a href='javascript:showtask(\"" + results.rows.item(i).id + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</b></p></a>";
+              msg = "<a onclick='showtask(\"" + results.rows.item(i).id + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</b></p></a>";
               document.querySelector('#status').innerHTML +=  msg;
            } 
         }, null); 
@@ -34,13 +34,16 @@ function loadData() {
 }
 function showtask(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-    db.transaction(function (tx) {
-        tx.executeSql('SELECT * FROM LOGS WHERE id=?', [id], function (tx, results) {
-            var kategorie = results.rows.item.kategorie;
-            $("body").pagecontainer("change", "#onetask");
-            $("#showtask").innerHTML = kategorie;
-        })
-        
-        
-    })
-}
+
+    db.transaction(function (tx) { 
+        tx.executeSql('SELECT * FROM LOGS WHERE id=?', [id], function (tx, results) { 
+            var len = results.rows.length, i; 
+           
+           for (i = 0; i < len; i++) { 
+              msg = "<p" + results.rows.item(i).text + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</p>";
+              document.querySelector('#zeig').innerHTML =  msg;
+           }
+           $("body").pagecontainer("change", "#onetask"); 
+        }, null); 
+     })
+    };

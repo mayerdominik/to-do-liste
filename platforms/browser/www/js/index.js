@@ -3,7 +3,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     document.getElementById('btn').addEventListener('click', takephoto);
-    document.getElementById('choosephoto').addEventListener('click', openFilePicker);
+    document.getElementById('photo').addEventListener('click', openFilePicker);
     document.getElementById('newtask').addEventListener('click', sendtext);
 }
 
@@ -40,3 +40,16 @@ function sendtext() {
     let text = document.getElementById("textarea-4").value;
     document.getElementById("textarea-5").value=text;
 }
+function createCat() {
+        var newCat = ('#newcat').val();
+    
+        if(newCat != '') {
+            $('#categorylist').append('<li data-role="list-divider">' + newCat + '</li>').listview('refresh');
+            $('#newcat').val('');
+            $( "#popupcat2" ).popup( "close" );
+        } else {
+            alert('Bitte einen Kategorienamen eingeben');
+        }
+        
+    }
+    

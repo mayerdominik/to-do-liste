@@ -1,27 +1,28 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    document.getElementById('speechbtn').addEventListener('click', startRecognition);
+    
+    document.getElementById('speechbtn').addEventListener('click', checkPermission);
+
 }
-// Handle results
 
 function startRecognition(){
     window.plugins.speechRecognition.startListening(function(result){
         // Show results in the console
         console.log(result);
+        document.getElementById("textarea-4").value = result;
     }, function(err){
         console.error(err);
     }, {
-        language: "en-US",
+        language: "de-DE",
         showPopup: true
     });
 }
 
-// Verify if recognition is available
+function checkPermission(){
 window.plugins.speechRecognition.isRecognitionAvailable(function(available){
     if(!available){
         console.log("Sorry, not available");
     }
-
     // Check if has permission to use the microphone
     window.plugins.speechRecognition.hasPermission(function (isGranted){
         if(isGranted){
@@ -41,4 +42,7 @@ window.plugins.speechRecognition.isRecognitionAvailable(function(available){
 }, function(err){
     console.log(err);
 });
+}
+
+
 
