@@ -47,7 +47,11 @@ function showtask(id) {
               document.querySelector('#zeig').innerHTML =  msg;
               document.getElementById('zeigephoto').src = results.rows.item(i).bildlink;
            }
+<<<<<<< HEAD
            document.getElementById("delete").innerHTML= "<a data-role='button' id='loeschen' onclick = 'deletetask(\"" + id + "\")'>Löschen<\a></br></br>";
+=======
+           document.getElementById("delete").innerHTML= "<a onclick = 'deletetask(\"" + id + "\")'>Löschen<\a>";
+>>>>>>> 999d1d247b2406943374521922d59d227664a2f4
            $("body").pagecontainer("change", "#onetask"); 
         }, null); 
      })
@@ -64,4 +68,12 @@ function deletetask(id) {
     })
     
     
+<<<<<<< HEAD
 };
+=======
+}
+    
+    
+    
+    ;
+>>>>>>> 999d1d247b2406943374521922d59d227664a2f4
