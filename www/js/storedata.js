@@ -1,7 +1,6 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('save').addEventListener('click', saveData);
-    document.getElementById('showData').addEventListener('click', loadData);
     var msg;
 }
 function saveData() {
@@ -15,7 +14,8 @@ function saveData() {
         var bildlink = document.getElementById("msg").textContent;
         tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie, bildlink) VALUES (?, ?, ?, ?, ?)', [datum, uhrzeit, text, kategorie, bildlink]); 
         msg = '<p>Log message created and row inserted.</p>'; 
-        document.querySelector('#status').innerHTML =  msg; 
+        document.querySelector('#status').innerHTML =  msg;
+        alert("Aufgabe gespeichert");
      }) 
 } 
 function loadData() {

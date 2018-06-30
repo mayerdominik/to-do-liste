@@ -13,9 +13,10 @@ function saveData() {
         var text = document.getElementById("textarea-5").value;
         var kategorie = document.getElementById("category").value;
         var bildlink = document.getElementById("msg").textContent;
-        tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie, bildlink) VALUES (?, ?, ?, ?, ?)', [datum, uhrzeit, text, kategorie]); 
+        tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie, bildlink) VALUES (?, ?, ?, ?, ?)', [datum, uhrzeit, text, kategorie, bildlink]); 
         msg = '<p>Log message created and row inserted.</p>'; 
-        document.querySelector('#status').innerHTML =  msg; 
+        document.querySelector('#status').innerHTML =  msg;
+        alert("Aufgabe gespeichert");
      }) 
 } 
 function loadData() {
