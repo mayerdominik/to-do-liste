@@ -46,7 +46,25 @@ function showtask(id) {
               document.querySelector('#zeig').innerHTML =  msg;
               document.getElementById('zeigephoto').src = results.rows.item(i).bildlink;
            }
+           document.getElementById("delete").innerHTML= "<a onclick = 'deletetask(\"" + id + "\")'>Löschen<\a>";
            $("body").pagecontainer("change", "#onetask"); 
         }, null); 
      })
-    };
+    }
+function deletetask(id) {
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+        tx.executeSql('DELETE FROM LOGS WHERE id=?', [id], function (tx, results) {
+            
+        }, null);
+        alert("Aufgabe gelöscht")
+        $("body").pagecontainer("change", "#tasks");
+        location.reload();
+    })
+    
+    
+}
+    
+    
+    
+    ;
