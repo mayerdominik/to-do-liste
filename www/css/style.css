@@ -20,3 +20,7 @@ form > .ui-btn {
 .popupcat{
     padding: 5%;
 }
+#loeschen {
+    background-color: red;
+    color: white;
+}
