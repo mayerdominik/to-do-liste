@@ -19,13 +19,14 @@ function saveData() {
      }) 
 } 
 function loadData() {
-    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    $("#status").text("");
     db.transaction(function (tx) { 
         tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) { 
            var len = results.rows.length, i; 
-           msg = "<p>Found rows: " + len + "</p>"; 
+           msg = "<p>Anzahl der Aufgaben: " + len + "</p>"; 
            document.querySelector('#status').innerHTML +=  msg;
-  
+           
            for (i = 0; i < len; i++) { 
               msg = "<a onclick='showtask(\"" + results.rows.item(i).id + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</b></p></a>";
               document.querySelector('#status').innerHTML +=  msg;
