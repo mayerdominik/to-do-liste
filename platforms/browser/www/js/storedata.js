@@ -1,6 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('save').addEventListener('click', saveData);
+    document.getElementById('tasksbtn').addEventListener('click', loadData);
     var msg;
 }
 function saveData() {
@@ -16,13 +17,12 @@ function saveData() {
         msg = '<p>Log message created and row inserted.</p>'; 
         document.querySelector('#status').innerHTML =  msg;
         loadData();
-        alert("Aufgabe gespeichert");
-
-     }) 
+        $("body").pagecontainer("change", "#tasks"); 
+     })
 } 
 function loadData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-    $("#table").text("");
+    $("#table>li").remove();
     $("#status").text("");
     db.transaction(function (tx) { 
         tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) { 
@@ -31,10 +31,13 @@ function loadData() {
            document.querySelector('#status').innerHTML +=  msg;
            
            for (i = 0; i < len; i++) { 
-              msg = "<li><a onclick='showtask(\"" + results.rows.item(i).id + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</a></li>";
-              document.querySelector('#table').innerHTML +=  msg;
-              document.querySelector('#table').innerHTML += "<img src='img/trashcan.png' class='img-responsive' style='width:2%' onclick = 'deletetask(\"" + results.rows.item(i).id + "\")'\>";
+              msg = "<li><a onclick='showtask(\"" + results.rows.item(i).id + "\")'><h2>" + results.rows.item(i).text + "</h2></a><a onclick='deletetask(\"" + results.rows.item(i).id + "\")'></a></li>";
+              $('#table').append(msg);
+              //document.querySelector('#table').innerHTML += "<img src='img/trashcan.png' class='img-responsive' style='width:2%' onclick = 'deletetask(\"" + results.rows.item(i).id + "\")'\>";
            }
+           
+           $("body").pagecontainer("change", "#tasks"); 
+           $("#table").listview("refresh");
         }, null); 
      })
 }
@@ -46,7 +49,7 @@ function showtask(id) {
             var len = results.rows.length, i; 
            
            for (i = 0; i < len; i++) { 
-              msg = "<p" + results.rows.item(i).text + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</p>";
+              msg = "<h1>Kategorie: " + results.rows.item(i).kategorie + "</h1><h2>Datum: " + results.rows.item(i).datum + "</h2><h2>Uhrzeit: " + results.rows.item(i).uhrzeit + "</h2><h3>Aufgabe: " + results.rows.item(i).text + "</h3> ";
               document.querySelector('#zeig').innerHTML =  msg;
               document.getElementById('zeigephoto').src = results.rows.item(i).bildlink;
            }
@@ -63,7 +66,7 @@ function deletetask(id) {
         }, null);
         alert("Aufgabe gelöscht")
         $("body").pagecontainer("change", "#tasks");
-        location.reload();
+        loadData();
     })
     
     

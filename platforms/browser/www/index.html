@@ -38,11 +38,12 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/speech.js"></script>
         <script type="text/javascript" src="js/storedata.js"></script>
+        <script type="text/javascript" src="js/swipe.js"></script>
         <title>Hello World</title>
         
     </head>
     <body>
-        <div data-role="page" class="container" id="test">
+        <div data-role="page" class="container" id="home">
             <div data-role="header">
                 <h1>Willkommen</h1>
             </div>
@@ -56,20 +57,20 @@
                 </div>
             </div>
             <div data-role="footer">
-                <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Textarea:</label>
-                <textarea cols="40" rows="8" name="textarea-4" id="textarea-4">Textarea</textarea>
-                <a href="#newtask" data-role="button" >Neue Aufgabe</a>
+                    <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
+                    <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
+                <a href="#newtask" id="newtaskbtn" data-role="button" >Neue Aufgabe</a>
                 <a href="#categories" data-role="button" >Kategorien</a>
-                <a href="#tasks" onclick="loadData()" data-role="button">Aufgaben</a>
+                <a id="tasksbtn" data-role="button">Aufgaben</a>
             </div>
         </div>
-        <div data-role="page" id="newtask">
-            <div class="container">
+        <div data-role="page" class="container" id="newtask">
             <div data-role="header">
-                <h1>Neue Aufgabe anlegen</h1>
+                <h1>Neue Aufgabe</h1>
             </div>
             <div data-role="main">         
                 <form>
+                    <label for="textarea-5">Aufgabe:</label>
                     <input type="text" id="textarea-5">
                     <label for="date">Datum:</label>
                     <input type="date" id="date">
@@ -98,7 +99,6 @@
                 
             </div>
         </div>
-        </div>
 
         <div data-role="page" id="categories">
             <div data-role="header">
@@ -120,20 +120,21 @@
             </div>
         </div>
 
-        <div data-role="page" class="container" id="tasks">
-            <div data-role="header">
+        <div data-role="page" data-title="Inbox" class="container" id="tasks">
+            <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Aufgaben</h1>
+                        <a href="#home" data-icon="carat-l" data-iconpos="notext">Back</a>
+                        <a href="#" onclick="window.location.reload()" data-icon="refresh" data-iconpos="notext">Refresh</a>
             </div>
-            <div data-role="main">
-               <div id = "status" name = "status"></div>
-               <ul data-role='listview' id="table" data-filter='true' data-filter-placeholder='Search tasks...' data-inset='true'>
-                </ul>
-                <div id="eliminate"></div>
+            <div data-role="main" class="ui-content">
+            <ul data-role="listview" id="table" data-split-icon="delete" data-inset="true">
+            </ul>
+            <div id = "status" name = "status"></div>
             </div>
             <div data-role="footer">
-
             </div>
         </div>
+
 
         <div data-role="page" class="container" id="onetask">
                 <div data-role="header">

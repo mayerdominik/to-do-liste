@@ -38,6 +38,7 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/speech.js"></script>
         <script type="text/javascript" src="js/storedata.js"></script>
+        <script type="text/javascript" src="js/swipe.js"></script>
         <title>Hello World</title>
         
     </head>
@@ -56,11 +57,11 @@
                 </div>
             </div>
             <div data-role="footer">
-                    <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Textarea:</label>
+                    <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
                     <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
                 <a href="#newtask" id="newtaskbtn" data-role="button" >Neue Aufgabe</a>
                 <a href="#categories" data-role="button" >Kategorien</a>
-                <a href="#tasks" data-role="button">Aufgaben</a>
+                <a id="tasksbtn" data-role="button">Aufgaben</a>
             </div>
         </div>
         <div data-role="page" class="container" id="newtask">
@@ -69,6 +70,7 @@
             </div>
             <div data-role="main">         
                 <form>
+                    <label for="textarea-5">Aufgabe:</label>
                     <input type="text" id="textarea-5">
                     <label for="date">Datum:</label>
                     <input type="date" id="date">
@@ -118,20 +120,21 @@
             </div>
         </div>
 
-        <div data-role="page" class="container" id="tasks">
-            <div data-role="header">
+        <div data-role="page" data-title="Inbox" class="container" id="tasks">
+            <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Aufgaben</h1>
+                        <a href="#home" data-icon="carat-l" data-iconpos="notext">Back</a>
+                        <a href="#" onclick="window.location.reload()" data-icon="refresh" data-iconpos="notext">Refresh</a>
             </div>
-            <div data-role="main">
-               <div id = "status" name = "status"></div>
-               <ul data-role='listview' id="table" data-filter='true' data-filter-placeholder='Search tasks...' data-inset='true'>
-                </ul>
-                <div id="eliminate"></div>
+            <div data-role="main" class="ui-content">
+            <ul data-role="listview" id="table" data-split-icon="delete" data-inset="true">
+            </ul>
+            <div id = "status" name = "status"></div>
             </div>
             <div data-role="footer">
-                	<a href="#home" data-role="button">Home</a>
             </div>
         </div>
+
 
         <div data-role="page" class="container" id="onetask">
                 <div data-role="header">
