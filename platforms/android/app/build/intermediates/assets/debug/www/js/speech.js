@@ -14,6 +14,7 @@ function startRecognition(){
         console.error(err);
     }, {
         language: "de-DE",
+        matches: 1,
         showPopup: true
     });
 }
