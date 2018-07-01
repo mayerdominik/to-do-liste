@@ -19,6 +19,7 @@ function saveData() {
      })
      $("body").pagecontainer("change", "#tasks");
      alert("Aufgabe gespeichert"); 
+     location.reload();
 } 
 function loadData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);

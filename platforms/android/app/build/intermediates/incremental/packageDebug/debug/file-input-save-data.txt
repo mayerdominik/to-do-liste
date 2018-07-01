@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jul 01 11:25:46 CEST 2018
+#Sun Jul 01 12:24:01 CEST 2018
 76.base=C\:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 5.base=C\:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 42.base=C\:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_

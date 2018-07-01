@@ -4,7 +4,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('btn').addEventListener('click', takephoto);
     document.getElementById('photo').addEventListener('click', openFilePicker);
-    document.getElementById('newtask').addEventListener('click', sendtext);
+    document.getElementById('newtaskbtn').addEventListener('click', sendtext);
 }
 
 function takephoto(){
@@ -37,9 +37,9 @@ function openFilePicker(selection) {
         navigator.camera.getPicture(ftw, wtf, options);
 }
 function sendtext() {
-    let text = document.getElementById("textarea-4").value;
-    document.getElementById("textarea-5").value=text;
-}
+        let text = document.getElementById("textarea-4").value;
+        document.getElementById("textarea-5").value=text;
+    }
 function createCat(id) {
         let catid = "#newcat" + id;
         let popupid = "#popupcat" + id;
