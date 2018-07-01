@@ -1,12 +1,18 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('tasksbtn').addEventListener('click', loadData);
-    document.getElementById('newtaskbtn').addEventListener('click', changebutton);
+    document.getElementById('newtaskbtn').addEventListener('click', newtask);
     $("#categories").on("pageload", loadCat());
     $("#tasks").on("pageload", loadData);
     var msg;
 }
-function changebutton() {
+function newtask() {
+    $("#date").val("");
+    $("#time-2").val("");
+    $("#textarea-5").val("");
+    $("#category").val("");
+    $("#msg").val("");
+    document.getElementById('photo').src = "img/gallery.png";
     $("#saveedit").html("<button class='ui-btn' id='save'>Speichern</button>");
     $("body").pagecontainer("change", "#newtask");
     document.getElementById('save').addEventListener('click', saveData);
@@ -92,7 +98,13 @@ function calledit(id) {
           $("#textarea-5").val(text);
           $("#category").val(kategorie);
           $("#msg").val(datum);
-          document.getElementById('photo').src = bildlink;
+          if(bildlink != "") {
+            document.getElementById('photo').src = bildlink;
+            document.getElementById('photo').style = "width:90%";
+          } else {
+
+          }
+          
           $("body").pagecontainer("change", "#newtask");
           $("#saveedit").html("<button class='ui-btn' id='edittask' onclick = 'edittask(\"" + id + "\")'>Änderung speichern</button>");
        }}, null);
@@ -126,7 +138,7 @@ function saveCat(id){
         db.transaction(function (tx) {   
             tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie)'); 
             let kategorie = newCat;
-            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen 
+            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen, ob array
             msg = '<p>Log message created and row inserted.</p>'; 
         })
         $('#categorylist').append('<li>' + newCat + '</li>');

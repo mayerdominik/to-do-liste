@@ -45,7 +45,7 @@
     </head>
     <body>
         <div data-role="page" class="container" id="home">
-            <div data-role="header">
+            <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Willkommen</h1>
             </div>
             <div data-role="main">
@@ -66,8 +66,9 @@
             </div>
         </div>
         <div data-role="page" class="container" id="newtask">
-            <div data-role="header">
+            <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Neue Aufgabe</h1>
+                <a href="#home" data-icon="home" data-iconpos="notext">Back</a>
             </div>
             <div data-role="main">         
                 <form>
@@ -88,13 +89,17 @@
                                 <button id="cat" class="ui-btn ui-corner-all" type="submit" onclick="saveCat(1);">Erstellen</button>
                             </form>
                         </div>
-                        <div>
-                            <p id="msg"></p>
-                            <img style="width:10%" id="photo" src="img/gallery.png">
-                        </div>   
-                        <button id="btn" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-b ui-icon-camera" >Take Picture</button>
-                        <div id="saveedit"></div>
-                </form>                 
+                        
+                </form> 
+                <div class="row">
+                        <div class="col-sm-1">
+                                <button id="btn" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-b ui-icon-camera" ></button>
+                        </div>
+                        <div class="col-sm-1">
+                                <img id="photo" data-inline="true" style="width:10%" class="img-responsive" src="img/gallery.png">
+                        </div>
+                    </div> 
+                    <div id="saveedit"></div>       
             </div>
             <div data-role="footer">
                 
@@ -102,7 +107,7 @@
         </div>
 
         <div data-role="page" id="categories">
-            <div data-role="header">
+            <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Kategorien</h1>
             </div>
             <div data-role="main">
@@ -124,7 +129,7 @@
         <div data-role="page" data-title="Inbox" class="container" id="tasks">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Aufgaben</h1>
-                        <a href="#home" data-icon="carat-l" data-iconpos="notext">Back</a>
+                        <a href="#home" data-icon="home" data-iconpos="notext">Back</a>
                         <a href="#" onclick="loadData()" data-icon="refresh" data-iconpos="notext">Refresh</a>
             </div>
             <div data-role="main" class="ui-content">
@@ -138,12 +143,12 @@
 
 
         <div data-role="page" class="container" id="onetask">
-                <div data-role="header">
+                <div data-role="header" data-theme="b">
                     <h1>Aufgabe</h1>
                 </div>
                 <div data-role="main">
                     <div id="zeig"></div>
-                    <img id="zeigephoto">
+                    <img class="img-responsive" style="width:90%; height: auto; margin: 0 auto" id="zeigephoto">
                     <div id="edit"></div>
                     <div id="delete"></div>
                 </div>
