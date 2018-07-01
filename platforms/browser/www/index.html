@@ -27,6 +27,7 @@
             img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
+        <meta charset="utf-8"/>
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
@@ -59,7 +60,7 @@
             <div data-role="footer">
                     <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
                     <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
-                <a href="#newtask" id="newtaskbtn" data-role="button" >Neue Aufgabe</a>
+                <a id="newtaskbtn" data-role="button" >Neue Aufgabe</a>
                 <a href="#categories" data-role="button" >Kategorien</a>
                 <a id="tasksbtn" data-role="button">Aufgaben</a>
             </div>
@@ -84,15 +85,15 @@
                             <form>
                                 <h2>Neue Kategorie erstellen</h2>
                                 <input type="text" class="newcat" id="newcat1" value="" placeholder="Name der Kategorie" data-theme="a">
-                                <button id="cat" class="ui-btn ui-corner-all" type="submit" onclick="createCat(1);">Erstellen</button>
+                                <button id="cat" class="ui-btn ui-corner-all" type="submit" onclick="saveCat(1);">Erstellen</button>
                             </form>
                         </div>
                         <div>
                             <p id="msg"></p>
                             <img style="width:10%" id="photo" src="img/gallery.png">
                         </div>   
-                        <button id="btn">Take Picture</button>
-                        <button id="save">Speichern</button>
+                        <button id="btn" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-b ui-icon-camera" >Take Picture</button>
+                        <div id="saveedit"></div>
                 </form>                 
             </div>
             <div data-role="footer">
@@ -114,7 +115,7 @@
                     <form>
                         <h2>Neue Kategorie erstellen</h2>
                         <input type="text" class="newcat" id="newcat2" value="" placeholder="Name der Kategorie" data-theme="a">
-                        <button id="cat2" class="ui-btn ui-corner-all" type="submit" onclick="createCat(2);">Erstellen</button>
+                        <button id="cat2" class="ui-btn ui-corner-all" type="submit" onclick="saveCat(2);">Erstellen</button>
                     </form>                    
                 </div>
             </div>
@@ -143,8 +144,8 @@
                 <div data-role="main">
                     <div id="zeig"></div>
                     <img id="zeigephoto">
-                    <button id="edit">Bearbeiten</button>
-                    <div id="delete">Löschen</div>
+                    <div id="edit"></div>
+                    <div id="delete"></div>
                 </div>
                 <div data-role="footer">
     
