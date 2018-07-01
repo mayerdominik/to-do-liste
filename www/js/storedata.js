@@ -126,7 +126,7 @@ function saveCat(id){
         db.transaction(function (tx) {   
             tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie)'); 
             let kategorie = newCat;
-            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen 
+            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen, ob array
             msg = '<p>Log message created and row inserted.</p>'; 
         })
         $('#categorylist').append('<li>' + newCat + '</li>');

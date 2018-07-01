@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 #Sun Jul 01 23:08:31 CEST 2018
+=======
+<<<<<<< HEAD
+#Sun Jul 01 20:50:36 CEST 2018
+base.0=C\:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+=======
+#Sun Jul 01 20:31:50 CEST 2018
+>>>>>>> 318b0b9c9ddb7fda93241875f9440500dca16b95
 base.0=C\:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+>>>>>>> 505d1692f00d1f42656ff3db507a6c37a5a5fa1a
 renamed.0=classes.dex
-file.0=C\:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
+file.0=C\:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

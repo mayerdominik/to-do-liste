@@ -40,23 +40,5 @@ function sendtext() {
         let text = document.getElementById("textarea-4").value;
         document.getElementById("textarea-5").value=text;
     }
-function createCat(id) {
-        let catid = "#newcat" + id;
-        let popupid = "#popupcat" + id;
-
-        var newCat = $(catid).val();
-    
-        if(newCat != '') {
-            $('#categorylist').append('<li>' + newCat + '</li>');
-            $('#category').append('<option value = ' + newCat + ' selected="selected" >' + newCat + '</option>');
-            $(catid).val('');
-            $(popupid).popup( "close" );
-        } else {
-            alert('Bitte einen Kategorienamen eingeben');
-        }
-        if(id==1){
-            $('#category').selectmenu("refresh", true); 
-        }
-    }
 
     

@@ -1,9 +1,13 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('tasksbtn').addEventListener('click', loadData);
+<<<<<<< HEAD
     document.getElementById('newtaskbtn').addEventListener('click', changebutton);
     $("#categories").on("pageload", loadCat());
     $("#tasks").on("pageload", loadData);
+=======
+    $("#categories").on("pageload", loadCat());
+>>>>>>> 318b0b9c9ddb7fda93241875f9440500dca16b95
     var msg;
 }
 function changebutton() {
@@ -76,6 +80,7 @@ function deletetask(id) {
     })
 };
 
+<<<<<<< HEAD
 function calledit(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     db.transaction(function (tx) {
@@ -114,6 +119,8 @@ function edittask(id) {
     })
 }
 
+=======
+>>>>>>> 318b0b9c9ddb7fda93241875f9440500dca16b95
     
 function saveCat(id){
     
@@ -126,7 +133,11 @@ function saveCat(id){
         db.transaction(function (tx) {   
             tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie)'); 
             let kategorie = newCat;
+<<<<<<< HEAD
             tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen 
+=======
+            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen, ob array
+>>>>>>> 318b0b9c9ddb7fda93241875f9440500dca16b95
             msg = '<p>Log message created and row inserted.</p>'; 
         })
         $('#categorylist').append('<li>' + newCat + '</li>');
