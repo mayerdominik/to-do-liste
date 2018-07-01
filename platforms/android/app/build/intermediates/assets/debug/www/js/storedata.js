@@ -2,6 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('save').addEventListener('click', saveData);
     document.getElementById('tasksbtn').addEventListener('click', loadData);
+    $("#categories").on("pageload", loadCat());
     var msg;
 }
 function saveData() {
@@ -68,6 +69,49 @@ function deletetask(id) {
         $("body").pagecontainer("change", "#tasks");
         loadData();
     })
-    
-    
 };
+
+    
+function saveCat(id){
+    
+    let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
+    let catid = "#newcat" + id;
+    let popupid = "#popupcat" + id;
+    
+    let newCat = $(catid).val();
+    if(newCat != '') {
+        db.transaction(function (tx) {   
+            tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie)'); 
+            let kategorie = newCat;
+            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen, ob array
+            msg = '<p>Log message created and row inserted.</p>'; 
+        })
+        $('#categorylist').append('<li>' + newCat + '</li>');
+        $('#category').append('<option value = ' + newCat + ' selected="selected" >' + newCat + '</option>');
+        $(catid).val('');
+        $(popupid).popup( "close" );
+        if(id==1){
+            $('#category').selectmenu("refresh", true); 
+        }
+        alert("Kategorie gespeichert"); 
+        } else {
+            alert('Bitte einen Kategorienamen eingeben');
+        }
+    }
+        
+    function loadCat(){
+        let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+        document.querySelector('#categorylist').innerHTML =  "";
+        document.querySelector('#category').innerHTML =  "";
+        db.transaction(function (tx) { 
+            tx.executeSql('SELECT * FROM CATS', [], function (tx, results) { 
+               let len = results.rows.length, i; 
+               for (i = 0; i < len; i++) { 
+                $('#categorylist').append('<li>' + results.rows.item(i).kategorie + '</li>');
+                $('#category').append('<option value = ' + results.rows.item(i).kategorie + ' selected="selected" >' + newCat + '</option>');
+               }
+            }); 
+         })
+    };
+
+    
