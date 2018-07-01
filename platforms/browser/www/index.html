@@ -76,13 +76,14 @@
                     <label for="time-2">Uhrzeit:</label>
                     <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
                     <label for="text-1">Kategorie:</label>
-                        <input type="text" name="text-1" id="category" value="">
-                        <a href="#popupcat" data-rel="popup" data-position-to="window" data-role="button" data-icon="plus" data-iconpos="notext" id="addcategory" data-theme="b" data-transition="pop" ></a>
-                        <div data-role="popup" class="popupcat" id="popupcat" data-theme="a" class="ui-corner-all">
+                    <select type="text" name="text-1" id="category">
+                    </select>
+                        <a href="#popupcat1" data-rel="popup" data-position-to="window" data-role="button" data-icon="plus" data-iconpos="notext" id="addcategory" data-theme="b" data-transition="pop" ></a>
+                        <div data-role="popup" class="popupcat" id="popupcat1" data-theme="a" class="ui-corner-all">
                             <form>
                                 <h2>Neue Kategorie erstellen</h2>
-                                <input type="text" class="newcat" value="" placeholder="Name der Kategorie" data-theme="a">
-                                <button id="cat" class="ui-btn ui-corner-all" type="submit" onclick="createCat();">Erstellen</button>
+                                <input type="text" class="newcat" id="newcat1" value="" placeholder="Name der Kategorie" data-theme="a">
+                                <button id="cat" class="ui-btn ui-corner-all" type="submit" onclick="createCat(1);">Erstellen</button>
                             </form>
                         </div>
                         <div>
@@ -105,7 +106,6 @@
             </div>
             <div data-role="main">
                 <ul data-role="listview" id="categorylist">
-                    <li data-role="list-divider">1. Kategorie</li>
                 </ul>
             </div>
             <div data-role="footer">
@@ -113,8 +113,8 @@
                 <div data-role="popup" class="popupcat" id="popupcat2" data-theme="a" class="ui-corner-all">
                     <form>
                         <h2>Neue Kategorie erstellen</h2>
-                        <input type="text" class="newcat" id="newcat" value="" placeholder="Name der Kategorie" data-theme="a">
-                        <button id="cat2" class="ui-btn ui-corner-all" type="submit" onclick="createCat();">Erstellen</button>
+                        <input type="text" class="newcat" id="newcat2" value="" placeholder="Name der Kategorie" data-theme="a">
+                        <button id="cat2" class="ui-btn ui-corner-all" type="submit" onclick="createCat(2);">Erstellen</button>
                     </form>                    
                 </div>
             </div>
@@ -125,14 +125,10 @@
                 <h1>Aufgaben</h1>
             </div>
             <div data-role="main">
-<<<<<<< HEAD
                <div id = "status" name = "status"></div>
                <ul data-role='listview' id="table" data-filter='true' data-filter-placeholder='Search tasks...' data-inset='true'>
                 </ul>
                 <div id="eliminate"></div>
-=======
-                <div id = "status" name = "status">Status Message</div> 
->>>>>>> 999d1d247b2406943374521922d59d227664a2f4
             </div>
             <div data-role="footer">
 

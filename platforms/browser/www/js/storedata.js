@@ -20,6 +20,7 @@ function saveData() {
 } 
 function loadData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    $("#table").text("");
     $("#status").text("");
     db.transaction(function (tx) { 
         tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) { 
@@ -47,11 +48,7 @@ function showtask(id) {
               document.querySelector('#zeig').innerHTML =  msg;
               document.getElementById('zeigephoto').src = results.rows.item(i).bildlink;
            }
-<<<<<<< HEAD
            document.getElementById("delete").innerHTML= "<a data-role='button' id='loeschen' onclick = 'deletetask(\"" + id + "\")'>Löschen<\a></br></br>";
-=======
-           document.getElementById("delete").innerHTML= "<a onclick = 'deletetask(\"" + id + "\")'>Löschen<\a>";
->>>>>>> 999d1d247b2406943374521922d59d227664a2f4
            $("body").pagecontainer("change", "#onetask"); 
         }, null); 
      })
@@ -68,12 +65,4 @@ function deletetask(id) {
     })
     
     
-<<<<<<< HEAD
 };
-=======
-}
-    
-    
-    
-    ;
->>>>>>> 999d1d247b2406943374521922d59d227664a2f4
