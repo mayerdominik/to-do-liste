@@ -1,6 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('save').addEventListener('click', saveData);
+    $( "#tasks" ).on( "pageload", loadData());
     var msg;
 }
 function saveData() {
@@ -15,8 +16,9 @@ function saveData() {
         tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie, bildlink) VALUES (?, ?, ?, ?, ?)', [datum, uhrzeit, text, kategorie, bildlink]); 
         msg = '<p>Log message created and row inserted.</p>'; 
         document.querySelector('#status').innerHTML =  msg;
-        alert("Aufgabe gespeichert");
-     }) 
+     })
+     $("body").pagecontainer("change", "#tasks");
+     alert("Aufgabe gespeichert"); 
 } 
 function loadData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
@@ -31,7 +33,7 @@ function loadData() {
            for (i = 0; i < len; i++) { 
               msg = "<li><a onclick='showtask(\"" + results.rows.item(i).id + "\")'>" + results.rows.item(i).datum + " " + results.rows.item(i).uhrzeit + " " + results.rows.item(i).text + " "+ results.rows.item(i).kategorie + "</a></li>";
               document.querySelector('#table').innerHTML +=  msg;
-            //  document.querySelector('#status').innerHTML += "<img src='img/trashcan.png' class='img-responsive' style='width:2%' onclick = 'deletetask(\"" + results.rows.item(i).id + "\")'\>";
+              //document.querySelector('#table').innerHTML += "<img src='img/trashcan.png' class='img-responsive' style='width:2%' onclick = 'deletetask(\"" + results.rows.item(i).id + "\")'\>";
            }
         }, null); 
      })
