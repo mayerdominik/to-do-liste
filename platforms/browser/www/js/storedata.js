@@ -3,10 +3,8 @@ function onDeviceReady() {
     document.getElementById('tasksbtn').addEventListener('click', loadData);
     document.getElementById('newtaskbtn').addEventListener('click', newtask);
     document.getElementById('lade').addEventListener('click', loadDatacat);
-   // $("#categories").on("pageload", loadCat());
     $("#tasks").on("pageload", loadData);
     document.getElementById("cat").addEventListener('click', saveCat);
-   // $("#filterbycategories").on("pageload", loadDatacat);
     var msg;
 }
 function newtask() {
@@ -220,20 +218,5 @@ function deletecategory(id) {
         loadData();
     })
 };
-        
-/*   function loadCat(){
-        let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-        document.querySelector('#categorylist').innerHTML =  "";
-        document.querySelector('#category').innerHTML =  "";
-        db.transaction(function (tx) { 
-            tx.executeSql('SELECT * FROM CATS', [], function (tx, results) { 
-               let len = results.rows.length, i; 
-               for (i = 0; i < len; i++) { 
-                $('#categorylist').append('<li>' + results.rows.item(i).kategorie + '</li>');
-                $('#category').append('<option value = ' + results.rows.item(i).kategorie + ' selected="selected" >' + newCat + '</option>');
-               }
-            });
-         })
-    };*/
 
     

@@ -286,19 +286,11 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/phonegap-plugin-push/www/push.js",
-        "id": "phonegap-plugin-push.PushNotification",
-        "pluginId": "phonegap-plugin-push",
+        "file": "plugins/cordova-plugin-firebase/www/firebase-browser.js",
+        "id": "cordova-plugin-firebase.FirebasePlugin",
+        "pluginId": "cordova-plugin-firebase",
         "clobbers": [
-            "PushNotification"
-        ]
-    },
-    {
-        "file": "plugins/phonegap-plugin-push/www/browser/push.js",
-        "id": "phonegap-plugin-push.BrowserPush",
-        "pluginId": "phonegap-plugin-push",
-        "clobbers": [
-            "PushNotification"
+            "FirebasePlugin"
         ]
     }
 ];
@@ -310,7 +302,7 @@ module.exports.metadata =
     "cordova-plugin-media-capture": "3.0.2",
     "cordova-plugin-speechrecognition": "1.1.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "phonegap-plugin-push": "2.1.3"
+    "cordova-plugin-firebase": "1.0.5"
 }
 // BOTTOM OF METADATA
 });

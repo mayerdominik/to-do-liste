@@ -39,10 +39,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "phonegap-plugin-push": {
+  "cordova-plugin-firebase": {
     "source": {
       "type": "registry",
-      "id": "phonegap-plugin-push@2.1.3"
+      "id": "cordova-plugin-firebase"
     },
     "is_top_level": true,
     "variables": {}

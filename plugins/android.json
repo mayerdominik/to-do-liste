@@ -22,8 +22,7 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.hello"
     },
-    "phonegap-plugin-push": {
-      "FCM_VERSION": "11.6.2",
+    "cordova-plugin-firebase": {
       "PACKAGE_NAME": "com.example.hello"
     }
   },
