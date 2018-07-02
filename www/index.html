@@ -67,12 +67,12 @@
         <div data-role="page" class="container" id="newtask">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Neue Aufgabe</h1>
-                <a href="#home" data-icon="home" data-iconpos="notext">Back</a>
+                <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
             </div>
             <div data-role="main">         
                 <form>
                     <label for="textarea-5">Aufgabe:</label>
-                    <input type="text" id="textarea-5">
+                    <textarea cols="40" rows="8" id="textarea-5"></textarea>
                     <label for="date">Datum:</label>
                     <input type="date" id="date">
                     <label for="time-2">Uhrzeit:</label>
@@ -129,7 +129,7 @@
         <div data-role="page" data-title="Inbox" class="container" id="tasks">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Aufgaben</h1>
-                        <a href="#home" data-icon="home" data-iconpos="notext">Back</a>
+                        <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
                         <a href="#" onclick="loadData()" data-icon="refresh" data-iconpos="notext">Refresh</a>
             </div>
             <div data-role="main" class="ui-content">
@@ -143,8 +143,9 @@
 
 
         <div data-role="page" class="container" id="onetask">
-                <div data-role="header" data-theme="b">
+                <div data-role="header" data-position="fixed" data-theme="b">
                     <h1>Aufgabe</h1>
+                    <a href="#tasks" data-icon="carat-l" data-iconpos="notext">Back</a>
                 </div>
                 <div data-role="main">
                     <div id="zeig"></div>

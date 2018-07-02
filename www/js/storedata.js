@@ -9,7 +9,8 @@ function onDeviceReady() {
 function newtask() {
     $("#date").val("");
     $("#time-2").val("");
-    $("#textarea-5").val("");
+    let text = document.getElementById("textarea-4").value;
+    document.getElementById("textarea-5").value=text;
     $("#category").val("");
     $("#msg").val("");
     document.getElementById('photo').src = "img/gallery.png";
