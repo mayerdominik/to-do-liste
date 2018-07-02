@@ -3,9 +3,10 @@ function onDeviceReady() {
     document.getElementById('tasksbtn').addEventListener('click', loadData);
     document.getElementById('newtaskbtn').addEventListener('click', newtask);
     document.getElementById('lade').addEventListener('click', loadDatacat);
+    document.getElementById('seecategories').addEventListener('click', showcategories);
     $("#tasks").on("pageload", loadData);
-    $("#categories").on("pageload", showcategories);
     document.getElementById("cat").addEventListener('click', saveCat);
+    document.getElementById("cat2").addEventListener('click', saveCat);
     var msg;
 }
 function newtask() {
@@ -194,7 +195,7 @@ function edittask(id) {
 
     
 function showcategories () {
-    $("#categorylist").html();
+    $("#categorylist").html("");
     let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
     db.transaction(function (tx) {
         tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
@@ -214,14 +215,18 @@ function showcategories () {
 function saveCat(){
     let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
     let newCat = $("#newcat1").val();
+    if(newCat == "") {
+        newCat = $("#newcat2.").val();
+    }
     if(newCat != "") {
         db.transaction(function (tx) {   
             tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie ,  CONSTRAINT name_unique UNIQUE (kategorie))'); 
             tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);//testen, ob array
             msg = '<p>Log message created and row inserted.</p>'; 
         })
-        $("#popupcat1").popup( "close" );
+        $(".popupcat").popup( "close" );
         alert("Kategorie gespeichert"); 
+        newtask();
     }
         else {
             alert("Bitte Kategorienamen eingeben");
@@ -234,8 +239,7 @@ function deletecategory(id) {
         tx.executeSql('DELETE FROM CATS WHERE id=?', [id], function (tx, results) {
         }, null);
         alert("Kategorie gelöscht")
-        $("body").pagecontainer("change", "#home");
-        loadData();
+        showcategories();
     })
 };
 

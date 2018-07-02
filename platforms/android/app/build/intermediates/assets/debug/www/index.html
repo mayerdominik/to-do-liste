@@ -39,7 +39,6 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/speech.js"></script>
         <script type="text/javascript" src="js/storedata.js"></script>
-        <script type="text/javascript" src="js/push.js"></script>
         <title>Hello World</title>
         
     </head>
@@ -60,49 +59,47 @@
             <div data-role="footer">
                     <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
                     <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
-                <a id="newtaskbtn" data-role="button" >Neue Aufgabe</a>
-                <a href="#categories" data-role="button" >Kategorien</a>
+                <a id="newtaskbtn" href="#newtask" data-role="button" >Neue Aufgabe</a>
+                <a id="seecategories" data-role="button" >Kategorien</a>
                 <a id="tasksbtn" data-role="button">Aufgaben</a>
                 <a id="lade" data-role="button">Aufgaben nach Kategorien</a>
             </div>
         </div>
-        <div data-role="page" class="container" id="newtask">
+
+        <div data-role="page" id="newtask">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Neue Aufgabe</h1>
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
             </div>
-            <div data-role="main">         
-                <form>
+            <div data-role="main">            
+                  <label for="text-1">Kategorie:</label>
+                    <select type="text" name="text-1" id="category">
+                    </select>
+            
+                  <a href="#popupcat1"  data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-plus ui-btn-icon-left ui-btn-a" data-transition="pop" ></a>
+                    <div data-role="popup" class="popupcat ui-corner-all" id="popupcat1" data-theme="a" id="popupLogin">
+                        <form>
+                            <div style="padding:10px 20px;">
+                                <h3>Neue Kategorie erstellen</h3>
+                                <label for="un" class="ui-hidden-accessible">Kategorie:</label>
+                                <input type="text" class="newcat" id="newcat1" value="" placeholder="Name der Kategorie" data-theme="a">
+                                <button type="submit" id="cat" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check newcat">Erstellen</button>
+                            </div>
+                        </form>
+                    </div>
                     <label for="textarea-5">Aufgabe:</label>
                     <textarea cols="40" rows="8" id="textarea-5"></textarea>
                     <label for="date">Datum:</label>
                     <input type="date" id="date">
                     <label for="time-2">Uhrzeit:</label>
-                    <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
-                    <label for="text-1">Kategorie:</label>
-                    <select type="text" name="text-1" id="category">
-                    </select>
-                        <a href="#popupcat1" data-rel="popup" data-position-to="window" data-role="button" data-icon="plus" data-iconpos="notext" id="addcategory" data-theme="b" data-transition="pop" ></a>
-                        <div data-role="popup" class="popupcat" id="popupcat1" data-theme="a" class="ui-corner-all">
-                          <h2>Neue Kategorie erstellen</h2>
-                          <input type="text" class="newcat" id="newcat1" value="" placeholder="Name der Kategorie" data-theme="a">
-                          <button id="cat" class="ui-btn ui-corner-all" onclick="saveCat();">Erstellen</button>
-                        </div>
-                        
-                </form> 
-                <div class="row">
-                        <div class="col-sm-1">
+                    <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">                        
                                 <p id="msg"></p>
                                 <button id="btn" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-b ui-icon-camera" ></button>
-                        </div>
-                        <div class="col-sm-1">
+                      
                                 <img id="photo" data-inline="true" style="width:10%" class="img-responsive" src="img/gallery.png">
-                        </div>
-                    </div> 
-                    <div id="saveedit"></div>       
+                    <div id="saveedit"></div>      
             </div>
             <div data-role="footer">
-                
             </div>
         </div>
 
@@ -115,6 +112,7 @@
                 <div id="mess"></div>
                 <ul data-role="listview" id="categorylist" data-split-icon="delete">
                 </ul>
+               
             </div>
             <div data-role="footer">
                 <a href="#popupcat2" data-rel="popup" data-position-to="window" data-role="button" id="addcategory2" data-transition="pop" >Neu</a>
@@ -122,7 +120,7 @@
                     <form>
                         <h2>Neue Kategorie erstellen</h2>
                         <input type="text" class="newcat" id="newcat2" value="" placeholder="Name der Kategorie" data-theme="a">
-                        <button id="cat2" class="ui-btn ui-corner-all" type="submit" onclick="saveCat();">Erstellen</button>
+                        <button id="cat2" class="ui-btn ui-corner-all">Erstellen</button>
                     </form>                    
                 </div>
             </div>
