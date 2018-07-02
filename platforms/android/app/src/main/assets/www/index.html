@@ -133,9 +133,10 @@
                         <a href="#" onclick="loadData()" data-icon="refresh" data-iconpos="notext">Refresh</a>
             </div>
             <div data-role="main" class="ui-content">
+            <div id = "status" name = "status"></div>
             <ul data-role="listview" id="table" data-split-icon="delete" data-inset="true">
             </ul>
-            <div id = "status" name = "status"></div>
+            
             </div>
             <div data-role="footer">
             </div>
@@ -145,9 +146,13 @@
         <div data-role="page" class="container" id="onetask">
                 <div data-role="header" data-position="fixed" data-theme="b">
                     <h1>Aufgabe</h1>
-                    <a href="#tasks" data-icon="back" data-iconpos="notext">Back</a>
+                    <a data-rel="back" data-icon="carat-l" data-iconpos="notext">Back</a>
                 </div>
                 <div data-role="main">
+                    <table style="width:100%; margin-top:30px" id="task-table">
+
+                    </table>
+                    <div id="showpopup" data-role="popup" data-overlay-theme="a"></div>
                     <div id="zeig"></div>
                     <img class="img-responsive" style="width:90%; height: auto; margin: 0 auto" id="zeigephoto">
                     <div id="edit"></div>

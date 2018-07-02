@@ -14,6 +14,7 @@ function newtask() {
     $("#category").val("");
     $("#msg").val("");
     document.getElementById('photo').src = "img/gallery.png";
+    document.getElementById('photo').style = "width:10%";
     $("#saveedit").html("<button class='ui-btn' id='save'>Speichern</button>");
     $("body").pagecontainer("change", "#newtask");
     document.getElementById('save').addEventListener('click', saveData);
@@ -32,6 +33,7 @@ function saveData() {
         document.querySelector('#status').innerHTML =  msg;
         loadData();
         $("body").pagecontainer("change", "#tasks"); 
+        alert("Aufgabe erstellt");
      })
 } 
 function loadData() {
@@ -62,9 +64,20 @@ function showtask(id) {
             var len = results.rows.length, i; 
            
            for (i = 0; i < len; i++) { 
-              msg = "<h1>Kategorie: " + results.rows.item(i).kategorie + "</h1><h2>Datum: " + results.rows.item(i).datum + "</h2><h2>Uhrzeit: " + results.rows.item(i).uhrzeit + "</h2><h3>Aufgabe: " + results.rows.item(i).text + "</h3> ";
+              var content="<tr><th>Kategorie</th><td>" + results.rows.item(i).kategorie + "</td></tr> .\
+                            <tr><th>Datum</th><td>" + results.rows.item(i).datum + "</td></tr> .\
+                            <tr><th>Uhrzeit</th><td>" + results.rows.item(i).uhrzeit + "</td></tr> .\
+                            <tr><th>Aufgabe</th><td>" + results.rows.item(i).text + "</td></tr>";
+              $("#task-table").html(content);
+              if(results.rows.item(i).bildlink!="") {
+                  var bild = "<tr><th>Bild</th><td><a href='" + results.rows.item(i).bildlink + "' data-rel='popup' data-position-to='window'><img class='img-responsive' style='width:90%; height: auto; margin: 0 auto' src='" + results.rows.item(i).bildlink + "'></a></td></tr>";
+                  $("#task-table").append(bild);
+                  $("#showpopup").html("<img src='" + results.rows.item(i).bildlink + "'>");
+              }
+
+         /*     msg = "<h1>Kategorie: " + results.rows.item(i).kategorie + "</h1><h2>Datum: " + results.rows.item(i).datum + "</h2><h2>Uhrzeit: " + results.rows.item(i).uhrzeit + "</h2><h3>Aufgabe: " + results.rows.item(i).text + "</h3> ";
               document.querySelector('#zeig').innerHTML =  msg;
-              document.getElementById('zeigephoto').src = results.rows.item(i).bildlink;
+              document.getElementById('zeigephoto').src = results.rows.item(i).bildlink;*/
            }
            $("#edit").html("<button class='ui-btn' id='edittask' onclick = 'calledit(\"" + id + "\")'>Bearbeiten</button>");
            $("#delete").html("<button class='ui-btn' id='loeschen' onclick = 'deletetask(\"" + id + "\")'>Löschen</button>");
@@ -107,7 +120,7 @@ function calledit(id) {
           }
           
           $("body").pagecontainer("change", "#newtask");
-          $("#saveedit").html("<button class='ui-btn' id='edittask' onclick = 'edittask(\"" + id + "\")'>Änderung speichern</button>");
+          $("#saveedit").html("<button class='ui-btn' id='edittask' onclick = 'edittask(\"" + id + "\")'>Änderungen speichern</button>");
        }}, null);
     })  
 }

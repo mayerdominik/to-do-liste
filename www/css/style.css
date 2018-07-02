@@ -24,3 +24,12 @@ form > .ui-btn {
     background-color: red;
     color: white;
 }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    font-size:20px;
+}
