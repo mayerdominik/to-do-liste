@@ -21,9 +21,6 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.hello"
-    },
-    "phonegap-plugin-push": {
-      "PACKAGE_NAME": "com.example.hello"
     }
   },
   "dependent_plugins": {}

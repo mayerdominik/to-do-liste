@@ -1,1 +1,11 @@
-{"background_color":"#FFF","display":"standalone","name":"RemindMe","short_name":"RemindMe","version":"com.example.hello","description":"A sample Apache Cordova application that responds to the deviceready event.","author":"Apache Cordova Team","icons":[],"start_url":"index.html","gcm_sender_id":"996231231186"}
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "RemindMe",
+  "short_name": "RemindMe",
+  "version": "com.example.hello",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "author": "Apache Cordova Team",
+  "icons": [],
+  "start_url": "index.html"
+}
