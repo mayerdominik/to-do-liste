@@ -2,17 +2,30 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('tasksbtn').addEventListener('click', loadData);
     document.getElementById('newtaskbtn').addEventListener('click', newtask);
-    $("#categories").on("pageload", loadCat());
+    document.getElementById('lade').addEventListener('click', loadDatacat);
     $("#tasks").on("pageload", loadData);
+    document.getElementById("cat").addEventListener('click', saveCat);
     var msg;
 }
 function newtask() {
     $("#date").val("");
     $("#time-2").val("");
+    $("#category").html("");
     let text = document.getElementById("textarea-4").value;
     document.getElementById("textarea-5").value=text;
     $("#category").val("");
     $("#msg").val("");
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
+            var len = results.rows.length, i;
+            for(i=0;i<len;i++) {
+                let content = "<option value='" + results.rows.item(i).kategorie + "'>" + results.rows.item(i).kategorie + "</option>";
+                $("#category").append(content);
+            }
+            $('#category').selectmenu('refresh');
+        }, null);
+    })
     document.getElementById('photo').src = "img/gallery.png";
     document.getElementById('photo').style = "width:10%";
     $("#saveedit").html("<button class='ui-btn' id='save'>Speichern</button>");
@@ -56,6 +69,42 @@ function loadData() {
         }, null); 
      })
 }
+function loadDatacat() {
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    $("#tasklist").html("");
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
+            var len = results.rows.length, i;
+            var message = "Anzahl der Kategorien: " + len;
+            $("#message").text(message);
+            for (i=0; i < len; i++) {
+                var content = "<li><a onclick='showcattasks(\"" + results.rows.item(i).kategorie + "\")'>" + results.rows.item(i).kategorie + "</a></li>";
+                $("#tasklist").append(content);
+            }
+            $("body").pagecontainer("change", "#filterbycategories");
+            $("#tasklist").listview("refresh");
+        }, null);
+    })
+}
+
+function showcattasks(kategorie) {
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT * FROM LOGS WHERE kategorie=?', [kategorie], function (tx, results) {
+            var len=results.rows.length, i;
+            var msg = "Anzahl der Aufgaben mit der Kategorie '" + kategorie + "': " + len;
+            $("#status").text(msg);
+            for(i=0; i < len; i++) {
+                var content = "<li><a onclick='showtask(\"" + results.rows.item(i).id + "\")'><h2>" + results.rows.item(i).text + "</h2></a><a onclick='deletetask(\"" + results.rows.item(i).id + "\")'></a></li>";
+                $('#table').append(msg);
+            }
+            $("body").pagecontainer("change", "#tasks"); 
+            $("#table").listview("refresh");
+        }, null);
+    })
+}
+
+
 function showtask(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     
@@ -141,46 +190,33 @@ function edittask(id) {
 }
 
     
-function saveCat(id){
+function saveCat(){
     
     let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
-    let catid = "#newcat" + id;
-    let popupid = "#popupcat" + id;
-    
-    let newCat = $(catid).val();
-    if(newCat != '') {
+    let newCat = $("#newcat1").val();
+    if(newCat != "") {
         db.transaction(function (tx) {   
-            tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie)'); 
-            let kategorie = newCat;
-            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [kategorie]);//testen, ob array
+            tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie ,  CONSTRAINT name_unique UNIQUE (kategorie))'); 
+            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);//testen, ob array
             msg = '<p>Log message created and row inserted.</p>'; 
         })
-        $('#categorylist').append('<li>' + newCat + '</li>');
-        $('#category').append('<option value = ' + newCat + ' selected="selected" >' + newCat + '</option>');
-        $(catid).val('');
-        $(popupid).popup( "close" );
-        if(id==1){
-            $('#category').selectmenu("refresh", true); 
-        }
+        $("#popupcat1").popup( "close" );
         alert("Kategorie gespeichert"); 
-        } else {
-            alert('Bitte einen Kategorienamen eingeben');
+    }
+        else {
+            alert("Bitte Kategorienamen eingeben");
         }
     }
-        
-    function loadCat(){
-        let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-        document.querySelector('#categorylist').innerHTML =  "";
-        document.querySelector('#category').innerHTML =  "";
-        db.transaction(function (tx) { 
-            tx.executeSql('SELECT * FROM CATS', [], function (tx, results) { 
-               let len = results.rows.length, i; 
-               for (i = 0; i < len; i++) { 
-                $('#categorylist').append('<li>' + results.rows.item(i).kategorie + '</li>');
-                $('#category').append('<option value = ' + results.rows.item(i).kategorie + ' selected="selected" >' + newCat + '</option>');
-               }
-            }); 
-         })
-    };
+
+function deletecategory(id) {
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+        tx.executeSql('DELETE FROM CATS WHERE id=?', [id], function (tx, results) {
+        }, null);
+        alert("Kategorie gelöscht")
+        $("body").pagecontainer("change", "#home");
+        loadData();
+    })
+};
 
     
