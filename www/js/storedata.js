@@ -4,6 +4,7 @@ function onDeviceReady() {
     document.getElementById('newtaskbtn').addEventListener('click', newtask);
     document.getElementById('lade').addEventListener('click', loadDatacat);
     $("#tasks").on("pageload", loadData);
+    $("#categories").on("pageload", showcategories);
     document.getElementById("cat").addEventListener('click', saveCat);
     var msg;
 }
@@ -88,6 +89,8 @@ function loadDatacat() {
 }
 
 function showcattasks(kategorie) {
+    $("#table").html();
+    $("#status").text();
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     db.transaction(function(tx) {
         tx.executeSql('SELECT * FROM LOGS WHERE kategorie=?', [kategorie], function (tx, results) {
@@ -96,7 +99,7 @@ function showcattasks(kategorie) {
             $("#status").text(msg);
             for(i=0; i < len; i++) {
                 var content = "<li><a onclick='showtask(\"" + results.rows.item(i).id + "\")'><h2>" + results.rows.item(i).text + "</h2></a><a onclick='deletetask(\"" + results.rows.item(i).id + "\")'></a></li>";
-                $('#table').append(msg);
+                $('#table').append(content);
             }
             $("body").pagecontainer("change", "#tasks"); 
             $("#table").listview("refresh");
@@ -190,6 +193,24 @@ function edittask(id) {
 }
 
     
+function showcategories () {
+    $("#categorylist").html();
+    let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
+            var len = results.rows.length, i;
+            var message = "Anzahl der Kategorien: " + len;
+            $("#mess").text(message);
+            for (i=0; i < len; i++) {
+                var content = "<li><a onclick='showcattasks(\"" + results.rows.item(i).kategorie + "\")'>" + results.rows.item(i).kategorie + "</a><a onclick='deletecategory(\"" + results.rows.item(i).id + "\")'></a></li>";
+                $("#categorylist").append(content);
+            }
+            $("body").pagecontainer("change", "#categories");
+            $("#categorylist").listview("refresh");
+        }, null);
+    })
+}
+
 function saveCat(){
     
     let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
