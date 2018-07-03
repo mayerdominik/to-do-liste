@@ -212,16 +212,16 @@ function showcategories () {
     })
 }
 function iscatexisting(cat) {
-    return function (tx) {
+    db.transaction(function (tx) {
        tx.executeSql('SELECT * FROM CATS WHERE kategorie=?', [cat], function (tx, results) {
             var len = results.rows.length;
             if(len > 0) {
-                callback(true);
+                return true;
             } else {
-                callback(false);
+                return false;
             }
         }, null);
-}}
+})}
 function saveCat1() {
     let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     let newCat = $("#newcat1").val();
@@ -231,7 +231,7 @@ function saveCat1() {
         db.transaction(function (tx) {
             tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie,  CONSTRAINT name_unique UNIQUE (kategorie))');
         })
-            let abfrage = db.transaction(iscatexisting(newCat));
+            let abfrage = iscatexisting(newCat);
             if(abfrage) {
                 $("#dialog").text("Diese Kategorie exisitert bereits");
             } else {
