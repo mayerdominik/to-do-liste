@@ -7,7 +7,6 @@ function onDeviceReady() {
     $("#tasks").on("pageload", loadData);
     document.getElementById("cat").addEventListener('click', saveCat1);
     document.getElementById("cat2").addEventListener('click', saveCat2);
-    var msg;
 }
 function newtask() {
     $("#date").val("");
@@ -36,21 +35,49 @@ function newtask() {
 }
 function saveData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
-    db.transaction(function (tx) {   
+    var datum = document.getElementById("date").value;
+    var uhrzeit = document.getElementById("time-2").value;
+    var text = document.getElementById("textarea-5").value;
+    var kategorie = document.getElementById("category").value;
+    if(datum==""||uhrzeit==""||text==""||kategorie=="") {
+        alert("Bitte füllen Sie alle Felder aus.");
+    } else {
+        db.transaction(function (tx) {   
         tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id INTEGER PRIMARY KEY AUTOINCREMENT, datum integer, uhrzeit integer, text, kategorie, bildlink)'); 
         var datum = document.getElementById("date").value;
         var uhrzeit = document.getElementById("time-2").value;
         var text = document.getElementById("textarea-5").value;
         var kategorie = document.getElementById("category").value;
         var bildlink = document.getElementById("msg").textContent;
-        tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie, bildlink) VALUES (?, ?, ?, ?, ?)', [datum, uhrzeit, text, kategorie, bildlink]); 
+        tx.executeSql('INSERT INTO LOGS (datum, uhrzeit, text, kategorie, bildlink) VALUES (?, ?, ?, ?, ?)', [datum, uhrzeit, text, kategorie, bildlink]);
+        tx.executeSql("SELECT * FROM LOGS", [], function (tx, results) {
+            var id = results.rows.length;
+            add_reminder(id, datum, text, uhrzeit, kategorie);
+        })
         msg = '<p>Log message created and row inserted.</p>'; 
         document.querySelector('#status').innerHTML =  msg;
         loadData();
         $("body").pagecontainer("change", "#tasks"); 
         alert("Aufgabe erstellt");
      })
-} 
+} }
+function add_reminder(id, datum, text, uhrzeit, kategorie) {
+    cordova.plugins.notification.local.schedule({
+        id: id,
+        title: kategorie,
+        text: text,
+        trigger: { at: new Date(datum + " " + uhrzeit) }
+    });
+    
+}
+function editreminder(id, datum, text, uhrzeit, kategorie) {
+    cordova.plugins.notification.local.update({
+        id: id,
+        title: kategorie,
+        text: text,
+        trigger: { at: new Date(datum + " " + uhrzeit) }
+    });
+}
 function loadData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     $("#table>li").remove();
@@ -140,6 +167,8 @@ function showtask(id) {
     }
 function deletetask(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    cordova.plugins.notification.local.cancel(id, function() {
+    });
     db.transaction(function (tx) {
         tx.executeSql('DELETE FROM LOGS WHERE id=?', [id], function (tx, results) {
         }, null);
@@ -179,11 +208,12 @@ function calledit(id) {
 }
 function edittask(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-    var datum = document.getElementById("date").value;
+        var datum = document.getElementById("date").value;
         var uhrzeit = document.getElementById("time-2").value;
         var text = document.getElementById("textarea-5").value;
         var kategorie = document.getElementById("category").value;
         var bildlink = document.getElementById("msg").textContent;
+        add_reminder(id, datum, text, uhrzeit, kategorie);
     db.transaction(function (tx) {
         tx.executeSql("UPDATE LOGS SET datum='"+ datum + "', uhrzeit='" + uhrzeit + "', text='" + text + "', kategorie='" + kategorie + "', bildlink='" + bildlink + "' WHERE id=?", [id], function (tx, results) {     
         }, null);

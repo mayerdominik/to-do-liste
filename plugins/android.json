@@ -21,7 +21,17 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.example.hello"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.example.hello"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.example.hello"
+    }
+  }
 }
