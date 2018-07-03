@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div data-role="page" id="newtask">
+        <div data-role="page" class="container" id="newtask">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Neue Aufgabe</h1>
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
@@ -75,17 +75,20 @@
                   <label for="text-1">Kategorie:</label>
                     <select type="text" name="text-1" id="category">
                     </select>
-            
-                  <a href="#popupcat1"  data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-plus ui-btn-icon-left ui-btn-a" data-transition="pop" ></a>
+                  <a href="#popupcat1"  data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-b ui-btn-inline" data-transition="pop" ></a>
+                  
                     <div data-role="popup" class="popupcat ui-corner-all" id="popupcat1" data-theme="a" id="popupLogin">
-                        <form>
+                            <div id="dialog"></div>
                             <div style="padding:10px 20px;">
                                 <h3>Neue Kategorie erstellen</h3>
                                 <label for="un" class="ui-hidden-accessible">Kategorie:</label>
                                 <input type="text" class="newcat" id="newcat1" value="" placeholder="Name der Kategorie" data-theme="a">
-                                <button type="submit" id="cat" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check newcat">Erstellen</button>
+                                <div id="info"></div>
+                                <button id="cat" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check newcat">Erstellen</button>
                             </div>
-                        </form>
+                        
+                    </div>
+                    
                     </div>
                     <label for="textarea-5">Aufgabe:</label>
                     <textarea cols="40" rows="8" id="textarea-5"></textarea>
@@ -103,7 +106,7 @@
             </div>
         </div>
 
-        <div data-role="page" id="categories">
+        <div data-role="page" class="container" id="categories">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Kategorien</h1>
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
@@ -117,11 +120,11 @@
             <div data-role="footer">
                 <a href="#popupcat2" data-rel="popup" data-position-to="window" data-role="button" id="addcategory2" data-transition="pop" >Neu</a>
                 <div data-role="popup" class="popupcat" id="popupcat2" data-theme="a" class="ui-corner-all">
-                    <form>
+                    <div id="dialog2"></div>
                         <h2>Neue Kategorie erstellen</h2>
                         <input type="text" class="newcat" id="newcat2" value="" placeholder="Name der Kategorie" data-theme="a">
                         <button id="cat2" class="ui-btn ui-corner-all">Erstellen</button>
-                    </form>                    
+                                      
                 </div>
             </div>
         </div>
@@ -162,7 +165,7 @@
                 </div>
             </div>
 
-            <div data-role="page" id="filterbycategories">
+            <div data-role="page" class="container" id="filterbycategories">
                     <div data-role="header" data-position="fixed" data-theme="b">
                         <h1>Aufgaben</h1>
                         <a href="#home" data-icon="home" data-iconpos="notext">Home</a>

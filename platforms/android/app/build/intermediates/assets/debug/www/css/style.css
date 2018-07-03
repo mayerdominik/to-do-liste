@@ -11,3 +11,13 @@ th, td {
     text-align: left;
     font-size:20px;
 }
+#dialog {
+    color:red;
+    margin:3px;
+    font-size: 20px;
+}
+#dialog2 {
+    color:red;
+    margin:3px;
+    font-size: 20px;
+}

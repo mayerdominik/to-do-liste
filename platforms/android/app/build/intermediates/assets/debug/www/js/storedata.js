@@ -5,8 +5,8 @@ function onDeviceReady() {
     document.getElementById('lade').addEventListener('click', loadDatacat);
     document.getElementById('seecategories').addEventListener('click', showcategories);
     $("#tasks").on("pageload", loadData);
-    document.getElementById("cat").addEventListener('click', saveCat);
-    document.getElementById("cat2").addEventListener('click', saveCat);
+    document.getElementById("cat").addEventListener('click', saveCat1);
+    document.getElementById("cat2").addEventListener('click', saveCat2);
     var msg;
 }
 function newtask() {
@@ -90,14 +90,14 @@ function loadDatacat() {
 }
 
 function showcattasks(kategorie) {
-    $("#table").html();
-    $("#status").text();
+    $("#table").html("");
+    $("#status").text("");
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     db.transaction(function(tx) {
         tx.executeSql('SELECT * FROM LOGS WHERE kategorie=?', [kategorie], function (tx, results) {
             var len=results.rows.length, i;
-            var msg = "Anzahl der Aufgaben mit der Kategorie '" + kategorie + "': " + len;
-            $("#status").text(msg);
+            var msg = "<h2>Kategorie: " + kategorie +"</h2></br><h3>Anzahl der Aufgaben: " + len +"</h3>";
+            $("#status").html(msg);
             for(i=0; i < len; i++) {
                 var content = "<li><a onclick='showtask(\"" + results.rows.item(i).id + "\")'><h2>" + results.rows.item(i).text + "</h2></a><a onclick='deletetask(\"" + results.rows.item(i).id + "\")'></a></li>";
                 $('#table').append(content);
@@ -188,20 +188,20 @@ function edittask(id) {
         tx.executeSql("UPDATE LOGS SET datum='"+ datum + "', uhrzeit='" + uhrzeit + "', text='" + text + "', kategorie='" + kategorie + "', bildlink='" + bildlink + "' WHERE id=?", [id], function (tx, results) {     
         }, null);
         alert("Aufgabe bearbeitet")
-        $("body").pagecontainer("change", "#tasks");
-        loadData();
+        showtask(id);
     })
 }
 
     
 function showcategories () {
     $("#categorylist").html("");
+    $("#mess").html("");
     let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
     db.transaction(function (tx) {
         tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
             var len = results.rows.length, i;
-            var message = "Anzahl der Kategorien: " + len;
-            $("#mess").text(message);
+            var message = "<h2>Anzahl der Kategorien: " + len + "</h2>";
+            $("#mess").html(message);
             for (i=0; i < len; i++) {
                 var content = "<li><a onclick='showcattasks(\"" + results.rows.item(i).kategorie + "\")'>" + results.rows.item(i).kategorie + "</a><a onclick='deletecategory(\"" + results.rows.item(i).id + "\")'></a></li>";
                 $("#categorylist").append(content);
@@ -211,36 +211,94 @@ function showcategories () {
         }, null);
     })
 }
-
-function saveCat(){
-    let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
+function iscatexisting(cat) {
+    return function (tx) {
+       tx.executeSql('SELECT * FROM CATS WHERE kategorie=?', [cat], function (tx, results) {
+            var len = results.rows.length;
+            if(len > 0) {
+                callback(true);
+            } else {
+                callback(false);
+            }
+        }, null);
+}}
+function saveCat1() {
+    let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     let newCat = $("#newcat1").val();
     if(newCat == "") {
-        newCat = $("#newcat2.").val();
-    }
-    if(newCat != "") {
-        db.transaction(function (tx) {   
-            tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie ,  CONSTRAINT name_unique UNIQUE (kategorie))'); 
-            tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);//testen, ob array
-            msg = '<p>Log message created and row inserted.</p>'; 
+        $("#dialog").text("Bitte Kategorienamen eingeben");
+    } else {
+        db.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie,  CONSTRAINT name_unique UNIQUE (kategorie))');
         })
-        $(".popupcat").popup( "close" );
-        alert("Kategorie gespeichert"); 
-        newtask();
+            let abfrage = db.transaction(iscatexisting(newCat));
+            if(abfrage) {
+                $("#dialog").text("Diese Kategorie exisitert bereits");
+            } else {
+                db.transaction(function (tx) {
+                    tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);
+                })
+                $(".popupcat").popup( "close" );
+                newtask();
+                alert("Kategorie gespeichert");
+            }
+            }
     }
-        else {
-            alert("Bitte Kategorienamen eingeben");
+function saveCat2(){
+    let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
+    let newCat = $("#newcat2").val();
+        if(newCat != "") {
+            db.transaction(function (tx) {   
+                tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie ,  CONSTRAINT name_unique UNIQUE (kategorie))'); 
+                tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);//testen, ob array
+                msg = '<p>Log message created and row inserted.</p>'; 
+            })
+            $(".popupcat").popup( "close" );
+            alert("Kategorie gespeichert"); 
+            newtask();
         }
     }
-
-function deletecategory(id) {
+function checkcategory(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     db.transaction(function (tx) {
-        tx.executeSql('DELETE FROM CATS WHERE id=?', [id], function (tx, results) {
-        }, null);
-        alert("Kategorie gelöscht")
-        showcategories();
+        tx.executeSql('SELECT kategorie FROM CATS WHERE id=?', [id], function (tx, results) {
+            var len = results.rows.length, i;
+            for(i=0;i<len;i++) {
+                var wert=results.rows.item(i).kategorie;
+            }
+            if(check(wert)) {
+                return true;
+            } else {
+                return false;
+            }
+        }, null); 
     })
+}
+function check(name) {
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM LOGS WHERE kategorie=?', [name], function (tx, results) {
+            var items = results.rows.length;
+            if(items>0) {
+                return true;
+            } else {
+                return false;
+            }
+        }, null);
+})}
+function deletecategory(id) {
+    if(checkcategory(id)) {
+        alert("Bitte erledigen Sie zuerst die Aufgaben, die dieser Kategorie zugeordnet sind.")
+    } else {
+        var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+        db.transaction(function (tx) {
+            tx.executeSql('DELETE FROM CATS WHERE id=?', [id], function (tx, results) {
+            }, null);
+            alert("Kategorie gelöscht")
+            showcategories();
+        })
+    }
+   
 };
 
     
