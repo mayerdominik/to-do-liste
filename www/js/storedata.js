@@ -25,7 +25,7 @@ function newtask() {
                 let content = "<option value='" + results.rows.item(i).kategorie + "'>" + results.rows.item(i).kategorie + "</option>";
                 $("#category").append(content);
             }
-            $('#category').selectmenu('refresh');
+            $('#category').selectmenu('refresh', true);
         }, null);
     })
     document.getElementById('photo').src = "img/gallery.png";
@@ -211,20 +211,23 @@ function showcategories () {
         }, null);
     })
 }
-function iscatexisting(cat) {
-    db.transaction(function (tx) {
-       tx.executeSql('SELECT * FROM CATS WHERE kategorie=?', [cat], function (tx, results) {
-            var len = results.rows.length;
-            if(len > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        }, null);
-})}
+
 function saveCat1() {
-    let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-    let newCat = $("#newcat1").val();
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    var newCat = $("#newcat1").val();
+    var catexists;
+    db.transaction(function (tx){
+        tx.executeSql('SELECT * FROM CATS WHERE kategorie=?', [newCat], function (tx, results){
+        if(results.rows.length>0){
+            catexists=true;
+        } 
+        else{
+            catexists=false;
+        }
+    if(catexists){
+        alert("Die eingegebene Kategorie existiert bereits");
+    }
+    else{
     if(newCat == "") {
         $("#dialog").text("Bitte Kategorienamen eingeben");
     } else {
@@ -238,25 +241,49 @@ function saveCat1() {
                 db.transaction(function (tx) {
                     tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);
                 })
-                $(".popupcat").popup( "close" );
+                $("#popupcat1").popup( "close" );
                 newtask();
                 alert("Kategorie gespeichert");
+                $('#category').selectmenu("refresh", true);
             }
             }
     }
+}, null)
+})
+}
+
 function saveCat2(){
-    let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
-    let newCat = $("#newcat2").val();
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    var newCat = $("#newcat2").val();
+    var catexists;
+    db.transaction(function (tx){
+        tx.executeSql('SELECT * FROM CATS WHERE kategorie=?', [newCat], function (tx, results){
+        if(results.rows.length>0){
+            catexists=true;
+        } 
+        else{
+            catexists=false;
+        }
+    if(catexists){
+        alert("Die eingegebene Kategorie existiert bereits");
+    }
+    else{
         if(newCat != "") {
             db.transaction(function (tx) {   
                 tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie ,  CONSTRAINT name_unique UNIQUE (kategorie))'); 
                 tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);//testen, ob array
                 msg = '<p>Log message created and row inserted.</p>'; 
             })
-            $(".popupcat").popup( "close" );
-            alert("Kategorie gespeichert"); 
-            newtask();
+            $("#popupcat2").popup( "close" );
+            alert("Kategorie gespeichert");
+            }
+            else {
+                alert("Bitte Kategorienamen eingeben");
+            }
         }
+    }, null)
+})
+
     }
 function checkcategory(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
