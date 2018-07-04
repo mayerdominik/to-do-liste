@@ -11,7 +11,7 @@ function onDeviceReady() {
 function newtask() {
     $("#date").val("");
     $("#time-2").val("");
-    $("#category").html("");
+    $("#category").empty();
     let text = document.getElementById("textarea-4").value;
     document.getElementById("textarea-5").value=text;
     $("#category").val("");
@@ -24,12 +24,12 @@ function newtask() {
                 let content = "<option value='" + results.rows.item(i).kategorie + "'>" + results.rows.item(i).kategorie + "</option>";
                 $("#category").append(content);
             }
-            $('#category').selectmenu('refresh', true);
+            $("#category").selectmenu("refresh");
         }, null);
     })
     document.getElementById('photo').src = "img/gallery.png";
     document.getElementById('photo').style = "width:10%";
-    $("#saveedit").html("<button class='ui-btn' id='save'>Speichern</button>");
+    $("#saveedit").html("<button class='ui-btn' id='save'>Remind Me</button>");
     $("body").pagecontainer("change", "#newtask");
     document.getElementById('save').addEventListener('click', saveData);
 }
@@ -69,14 +69,6 @@ function add_reminder(id, datum, text, uhrzeit, kategorie) {
         trigger: { at: new Date(datum + " " + uhrzeit) }
     });
     
-}
-function editreminder(id, datum, text, uhrzeit, kategorie) {
-    cordova.plugins.notification.local.update({
-        id: id,
-        title: kategorie,
-        text: text,
-        trigger: { at: new Date(datum + " " + uhrzeit) }
-    });
 }
 function loadData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
@@ -266,9 +258,8 @@ function saveCat1() {
                 tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);
                 })
                 $("#popupcat1").popup( "close" );
-                newtask();
                 alert("Kategorie gespeichert");
-                $('#category').selectmenu("refresh", true);
+                newtask();
             }
         }
     }, null)
@@ -299,6 +290,7 @@ function saveCat2(){
             })
             $("#popupcat2").popup( "close" );
             alert("Kategorie gespeichert");
+            showcategories();
             }
             else {
                 alert("Bitte Kategorienamen eingeben");
@@ -308,22 +300,6 @@ function saveCat2(){
 })
 
     }
-function checkcategory(id) {
-    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-    db.transaction(function (tx) {
-        tx.executeSql('SELECT kategorie FROM CATS WHERE id=?', [id], function (tx, results) {
-            var len = results.rows.length, i;
-            for(i=0;i<len;i++) {
-                var wert=results.rows.item(i).kategorie;
-            }
-            if(check(wert)) {
-                return true;
-            } else {
-                return false;
-            }
-        }, null); 
-    })
-}
 function check(name) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
     db.transaction(function (tx) {
@@ -336,19 +312,30 @@ function check(name) {
             }
         }, null);
 })}
+
 function deletecategory(id) {
-    if(checkcategory(id)) {
-        alert("Bitte erledigen Sie zuerst die Aufgaben, die dieser Kategorie zugeordnet sind.")
-    } else {
-        var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-        db.transaction(function (tx) {
-            tx.executeSql('DELETE FROM CATS WHERE id=?', [id], function (tx, results) {
-            }, null);
-            alert("Kategorie gelöscht")
-            showcategories();
-        })
-    }
-   
+    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT kategorie FROM CATS WHERE id=?', [id], function (tx, results) {
+            var len = results.rows.length, i;
+            for(i=0;i<len;i++) {
+                var wert=results.rows.item(i).kategorie;
+            }
+            tx.executeSql('SELECT * FROM LOGS WHERE kategorie=?', [wert], function (tx, results) {
+                var leng = results.rows.length, i;
+                if(leng>0) {
+                    alert("Bitte erledigen Sie zuerst die Aufgaben, die dieser Kategorie zugeordnet sind.")
+                } else {
+                    db.transaction(function (tx) {
+                        tx.executeSql('DELETE FROM CATS WHERE id=?', [id], function (tx, results) {
+                        }, null);
+                        alert("Kategorie gelöscht")
+                        showcategories();
+                    })
+                }
+            })
+        }, null); 
+    })   
 };
 
     

@@ -108,10 +108,11 @@
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Kategorien</h1>
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
+                <a href="#" id="refreshcategories" onclick="showcategories()" data-icon="refresh" data-iconpos="notext">Refresh</a>
             </div>
             <div data-role="main">
                 <div id="mess"></div>
-                <ul data-role="listview" id="categorylist" data-split-icon="delete">
+                <ul data-role="listview" id="categorylist" data-filter="true" data-filter-placeholder="Suche Kategorie..." data-split-icon="delete">
                 </ul>
                
             </div>
@@ -135,7 +136,7 @@
             </div>
             <div data-role="main" class="ui-content">
             <div id = "status" name = "status"></div>
-            <ul data-role="listview" id="table" data-split-icon="delete" data-inset="true">
+            <ul data-role="listview" id="table" data-filter="true" data-filter-placeholder="Suche Aufgabe..." data-split-icon="delete" data-inset="true">
             </ul>
             
             </div>
