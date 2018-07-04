@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
+            "outputFile": "C:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\a6602c37a0d39499df3918df463f5d0b\\res\\values-ro\\values-ro.xml",
+                    "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\1dac674267ffd8c7e27e1009a0ff1552\\res\\values-ro\\values-ro.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
