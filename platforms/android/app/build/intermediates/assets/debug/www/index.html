@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-sm-5"></div>
                     <div class="col-sm-2">
-                            <img id="speechbtn" class="img-responsive center-block" style="width:40%;" src="img/microphone.png">
+                        <img id="speechbtn" class="img-responsive center-block" style="width:40%; margin-top: 5%; margin-bottom: 5%;" src="img/microphone.png">
                     </div>
                     <div class="col-sm-5"></div>
                     <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
@@ -62,6 +62,15 @@
                 </div>
             </div>
             <div data-role="footer">
+<<<<<<< HEAD
+=======
+                    <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
+                    <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
+                <a id="newtaskbtn" href="#newtask" data-role="button" style="width: 100%;">Neue Aufgabe</a>
+                <a id="seecategories"  data-role="button" style="width: 100%;">Kategorien</a>
+                <a id="tasksbtn"  data-role="button" style="width: 100%;">Aufgaben</a>
+                <a id="lade" data-role="button" style="width: 100%;">Aufgaben nach Kategorien</a>
+>>>>>>> 4c0cede8110b1566f250577208fe75d31d236d03
             </div>
         </div>
 
@@ -71,11 +80,9 @@
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
             </div>
             <div data-role="main">            
-                  <label for="text-1">Kategorie:</label>
-                    <select type="text" name="text-1" id="category">
-                    </select>
-                  <a href="#popupcat1"  data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-b ui-btn-inline" data-transition="pop" ></a>
-                  
+                <label for="text-1">Kategorie:</label>
+                <select type="text" name="text-1" id="category"></select>
+                <div style="text-align: center;"><a href="#popupcat1" style="margin: 0 auto;" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-b ui-btn-inline" data-transition="pop" ></a></div>
                     <div data-role="popup" class="popupcat ui-corner-all" id="popupcat1" data-theme="a" id="popupLogin">
                             <div id="dialog"></div>
                             <div style="padding:10px 20px;">
@@ -95,10 +102,10 @@
                     <input type="date" id="date">
                     <label for="time-2">Uhrzeit:</label>
                     <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">                        
-                                <p id="msg"></p>
-                                <button id="btn" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-b ui-icon-camera" ></button>
-                      
-                                <img id="photo" data-inline="true" style="width:10%" class="img-responsive" src="img/gallery.png">
+                    <p id="msg"></p>
+                    <button id="btn" style="margin: 0 auto;" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-b ui-icon-camera" ></button>
+                    <img id="photo" data-inline="true" style="width:10%" class="img-responsive" src="img/gallery.png">
+                    <button id="btndel" style="margin: 0 auto;" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-b ui-icon-delete" ></button>
                     <div id="saveedit"></div>      
             </div>
             <div data-role="footer">

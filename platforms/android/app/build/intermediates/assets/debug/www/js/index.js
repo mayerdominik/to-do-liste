@@ -3,6 +3,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     document.getElementById('btn').addEventListener('click', takephoto);
+    document.getElementById('btndel').addEventListener('click', delphoto);
     document.getElementById('photo').addEventListener('click', openFilePicker);
 }
 
@@ -20,6 +21,7 @@ function takephoto(){
         
         navigator.camera.getPicture(ftw, wtf, opts);
     }
+
 function ftw (imgURI){
         document.getElementById('msg').textContent = imgURI;
         document.getElementById('photo').src = imgURI;
@@ -35,4 +37,8 @@ function openFilePicker(selection) {
     }
         navigator.camera.getPicture(ftw, wtf, options);
 }
-    
+function delphoto(){
+    document.getElementById('msg').textContent = "img/gallery.png";
+    document.getElementById('photo').src = "img/gallery.png";
+    document.getElementById('photo').style = "width:10%";
+}
