@@ -1,36 +1,6 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bs\\values-bs.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\1dac674267ffd8c7e27e1009a0ff1552\\res\\values-bs\\values-bs.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bs\\values-bs.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\1dac674267ffd8c7e27e1009a0ff1552\\res\\values-bs\\values-bs.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bs\\values-bs.xml",
             "map": [
                 {

@@ -56,13 +56,13 @@
                     <div class="col-sm-5"></div>
                 </div>
             </div>
-            <div data-role="footer">
+            <div data-role="footer" style="text-align: center; padding-top: 2%; padding-bottom: 2%;">
                     <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
-                    <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
-                <a id="newtaskbtn" href="#newtask" data-role="button" style="width: 100%;">Neue Aufgabe</a>
-                <a id="seecategories"  data-role="button" style="width: 100%;">Kategorien</a>
-                <a id="tasksbtn"  data-role="button" style="width: 100%;">Aufgaben</a>
-                <a id="lade" data-role="button" style="width: 100%;">Aufgaben nach Kategorien</a>
+                    <textarea cols="40" rows="8" style="width: 90%; margin: 0 auto; margin-bottom: 3%;" name="textarea-4" id="textarea-4"></textarea>
+                <a id="newtaskbtn" href="#newtask" data-role="button" style="width: 90%;">Neue Aufgabe</a>
+                <a id="seecategories"  data-role="button" style="width: 90%;">Kategorien</a>
+                <a id="tasksbtn"  data-role="button" style="width: 90%;">Aufgaben</a>
+                <a id="lade" data-role="button" style="width: 90%;">Aufgaben nach Kategorien</a>
             </div>
         </div>
 
@@ -112,7 +112,7 @@
             </div>
             <div data-role="main">
                 <div id="mess"></div>
-                <ul data-role="listview" id="categorylist" data-split-icon="delete">
+                <ul data-role="listview" id="categorylist" data-filter="true" data-filter-placeholder="Suche Kategorie..." data-split-icon="delete">
                 </ul>
                
             </div>
@@ -136,7 +136,7 @@
             </div>
             <div data-role="main" class="ui-content">
             <div id = "status" name = "status"></div>
-            <ul data-role="listview" id="table" data-split-icon="delete" data-inset="true">
+            <ul data-role="listview" id="table" data-filter="true" data-filter-placeholder="Suche Aufgabe..." data-split-icon="delete" data-inset="true">
             </ul>
             
             </div>

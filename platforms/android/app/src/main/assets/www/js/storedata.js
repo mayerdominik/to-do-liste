@@ -29,7 +29,7 @@ function newtask() {
     })
     document.getElementById('photo').src = "img/gallery.png";
     document.getElementById('photo').style = "width:10%";
-    $("#saveedit").html("<button class='ui-btn' id='save'>Speichern</button>");
+    $("#saveedit").html("<button class='ui-btn' id='save'>Remind Me</button>");
     $("body").pagecontainer("change", "#newtask");
     document.getElementById('save').addEventListener('click', saveData);
 }
@@ -69,14 +69,6 @@ function add_reminder(id, datum, text, uhrzeit, kategorie) {
         trigger: { at: new Date(datum + " " + uhrzeit) }
     });
     
-}
-function editreminder(id, datum, text, uhrzeit, kategorie) {
-    cordova.plugins.notification.local.update({
-        id: id,
-        title: kategorie,
-        text: text,
-        trigger: { at: new Date(datum + " " + uhrzeit) }
-    });
 }
 function loadData() {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
