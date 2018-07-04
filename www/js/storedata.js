@@ -2,7 +2,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     document.getElementById('tasksbtn').addEventListener('click', loadData);
     document.getElementById('newtaskbtn').addEventListener('click', newtask);
-    document.getElementById('lade').addEventListener('click', loadDatacat);
     document.getElementById('seecategories').addEventListener('click', showcategories);
     $("#tasks").on("pageload", loadData);
     document.getElementById("cat").addEventListener('click', saveCat1);
@@ -11,7 +10,6 @@ function onDeviceReady() {
 function newtask() {
     $("#date").val("");
     $("#time-2").val("");
-    $("#category").empty();
     let text = document.getElementById("textarea-4").value;
     document.getElementById("textarea-5").value=text;
     $("#category").val("");
@@ -24,7 +22,7 @@ function newtask() {
                 let content = "<option value='" + results.rows.item(i).kategorie + "'>" + results.rows.item(i).kategorie + "</option>";
                 $("#category").append(content);
             }
-            $("#category").selectmenu("refresh");
+            $("#category").selectmenu('refresh');
         }, null);
     })
     document.getElementById('photo').src = "img/gallery.png";
@@ -89,23 +87,6 @@ function loadData() {
            $("#table").listview("refresh");
         }, null); 
      })
-}
-function loadDatacat() {
-    var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-    $("#tasklist").html("");
-    db.transaction(function (tx) {
-        tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
-            var len = results.rows.length, i;
-            var message = "Anzahl der Kategorien: " + len;
-            $("#message").text(message);
-            for (i=0; i < len; i++) {
-                var content = "<li><a onclick='showcattasks(\"" + results.rows.item(i).kategorie + "\")'>" + results.rows.item(i).kategorie + "</a></li>";
-                $("#tasklist").append(content);
-            }
-            $("body").pagecontainer("change", "#filterbycategories");
-            $("#tasklist").listview("refresh");
-        }, null);
-    })
 }
 
 function showcattasks(kategorie) {
@@ -246,7 +227,26 @@ function saveCat1() {
         else{
             catexists=false;
         }
-        if(catexists){
+        switch(catexists) {
+            case true:
+            alert("Die eingegebene Kategorie existiert bereits");
+            break;
+            case false:
+            if(newCat == "") {
+                $("#dialog").text("Bitte Kategorienamen eingeben");
+            } else {
+                db.transaction(function (tx) {
+                    tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie,  CONSTRAINT name_unique UNIQUE (kategorie))');
+                    tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);
+                    })
+                    $("#popupcat1").popup( "close" );
+                    newtask();
+                    alert("Kategorie gespeichert");
+            }
+            break;
+
+        }
+     /*   if(catexists){
             alert("Die eingegebene Kategorie existiert bereits");
         }
         else{
@@ -257,11 +257,11 @@ function saveCat1() {
                 tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie,  CONSTRAINT name_unique UNIQUE (kategorie))');
                 tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);
                 })
-                $("#popupcat1").popup( "close" );
-                alert("Kategorie gespeichert");
                 newtask();
+                $("#popupcat1").popup( "close" );
+                alert("Kategorie gespeichert")
             }
-        }
+        }*/
     }, null)
 })
 }
