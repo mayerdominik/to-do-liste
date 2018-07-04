@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\31c7b933fd9d2d84be8f4e77462fd9d2\\res\\values-v24\\values-v24.xml",
+=======
+            "outputFile": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\aabb453b383cfc7abb639cafde50b38b\\res\\values-v24\\values-v24.xml",
+>>>>>>> 05a29e15866e34aa5e880f6858e9ede7ddda30e2
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

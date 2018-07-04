@@ -1,6 +1,7 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
@@ -24,6 +25,12 @@
                 },
                 {
                     "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\1dac674267ffd8c7e27e1009a0ff1552\\res\\values-v21\\values-v21.xml",
+=======
+            "outputFile": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\a6602c37a0d39499df3918df463f5d0b\\res\\values-v21\\values-v21.xml",
+>>>>>>> 05a29e15866e34aa5e880f6858e9ede7ddda30e2
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -40,6 +47,28 @@
                         "endColumns": "103,63,66,63,115,125,125,127,12,12",
                         "endOffsets": "154,218,285,349,465,591,1048,1344,1683,2021"
                     }
+<<<<<<< HEAD
+=======
+                },
+                {
+                    "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\aabb453b383cfc7abb639cafde50b38b\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,223,386,554",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "218,381,549,716"
+                    },
+                    "to": {
+                        "startLines": "8,11,15,19",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "596,764,1053,1349",
+                        "endLines": "10,13,17,21",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "759,922,1216,1511"
+                    }
+>>>>>>> 05a29e15866e34aa5e880f6858e9ede7ddda30e2
                 }
             ]
         }
