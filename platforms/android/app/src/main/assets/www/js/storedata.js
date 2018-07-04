@@ -12,7 +12,7 @@ function newtask() {
     $("#time-2").val("");
     let text = document.getElementById("textarea-4").value;
     document.getElementById("textarea-5").value=text;
-    $("#category").val("");
+    $("#category").html("");
     $("#msg").val("");
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
     db.transaction(function (tx) {
