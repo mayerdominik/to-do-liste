@@ -43,5 +43,9 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
+    <icon density="ldpi" src="res/icon/android/reminder_36px.png" />
+    <icon density="mdpi" src="res/icon/android/reminder_48px.png" />
+    <icon density="hdpi" src="res/icon/android/reminder_72px.png" />
+    <icon density="xhdpi" src="res/icon/android/reminder_96px.png" />
     <preference name="loglevel" value="DEBUG" />
 </widget>

@@ -1,19 +1,19 @@
 [
     {
-        "merged": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
-        "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\1dac674267ffd8c7e27e1009a0ff1552\\res\\layout-v21\\notification_template_custom_big.xml"
-    },
-    {
         "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
         "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\aabb453b383cfc7abb639cafde50b38b\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v16_notification_template_custom_big.xml.flat",
-        "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\a6602c37a0d39499df3918df463f5d0b\\res\\layout-v16\\notification_template_custom_big.xml"
+        "merged": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\1dac674267ffd8c7e27e1009a0ff1552\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
         "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\a6602c37a0d39499df3918df463f5d0b\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v16_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\a6602c37a0d39499df3918df463f5d0b\\res\\layout-v16\\notification_template_custom_big.xml"
     },
     {
         "merged": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
@@ -40,12 +40,12 @@
         "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\a6602c37a0d39499df3918df463f5d0b\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_camera_provider_paths.xml.flat",
-        "source": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\src\\main\\res\\xml\\camera_provider_paths.xml"
-    },
-    {
         "merged": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\Dideban\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\1dac674267ffd8c7e27e1009a0ff1552\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_camera_provider_paths.xml.flat",
+        "source": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\src\\main\\res\\xml\\camera_provider_paths.xml"
     },
     {
         "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -122,10 +122,6 @@
     {
         "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
         "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\aabb453b383cfc7abb639cafde50b38b\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
-        "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon.png.flat",
-        "source": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\icon.png"
     },
     {
         "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon.png.flat",
@@ -442,10 +438,6 @@
     {
         "merged": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon.png.flat",
         "source": "C:\\Users\\Dideban\\Documents\\DHBW\\to-do-liste\\platforms\\android\\app\\src\\main\\res\\mipmap-xhdpi\\icon.png"
-    },
-    {
-        "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_icon.png.flat",
-        "source": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\icon.png"
     },
     {
         "merged": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
