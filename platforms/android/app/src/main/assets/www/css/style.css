@@ -29,15 +29,15 @@ th, td {
 }
 #newtaskbtn{
     width: 90%;
+    margin-left: 5%;
 }
 #seecategories{
     width: 90%;
+    margin-left: 5%;
 }
 #tasksbtn{
     width: 90%;
-}
-#lade{
-    width: 90%;
+    margin-left: 5%;
 }
 #textarea-4{
     width: 90%; 
