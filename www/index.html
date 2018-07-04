@@ -58,11 +58,11 @@
             </div>
             <div data-role="footer" style="text-align: center; padding-top: 2%; padding-bottom: 2%;">
                     <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
-                    <textarea cols="40" rows="8" style="width: 90%; margin: 0 auto; margin-bottom: 3%;" name="textarea-4" id="textarea-4"></textarea>
-                <a id="newtaskbtn" href="#newtask" data-role="button" style="width: 90%;">Neue Aufgabe</a>
-                <a id="seecategories"  data-role="button" style="width: 90%;">Kategorien</a>
-                <a id="tasksbtn"  data-role="button" style="width: 90%;">Aufgaben</a>
-                <a id="lade" data-role="button" style="width: 90%;">Aufgaben nach Kategorien</a>
+                    <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
+                <a id="newtaskbtn" href="#newtask" data-role="button">Neue Aufgabe</a>
+                <a id="seecategories"  data-role="button">Kategorien</a>
+                <a id="tasksbtn"  data-role="button">Aufgaben</a>
+                <a id="lade" data-role="button">Aufgaben nach Kategorien</a>
             </div>
         </div>
 
@@ -71,8 +71,8 @@
                 <h1>Neue Aufgabe</h1>
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
             </div>
-            <div data-role="main">            
-                <label for="text-1">Kategorie:</label>
+            <div data-role="main" style="padding-top: 2%;">            
+                <label for="text-1"><b>Kategorie:</b></label>
                 <select type="text" name="text-1" id="category"></select>
                 <div style="text-align: center;"><a href="#popupcat1" style="margin: 0 auto;" data-rel="popup" data-position-to="window" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-b ui-btn-inline" data-transition="pop" ></a></div>
                     <div data-role="popup" class="popupcat ui-corner-all" id="popupcat1" data-theme="a" id="popupLogin">
@@ -88,16 +88,16 @@
                     </div>
                     
                     </div>
-                    <label for="textarea-5">Aufgabe:</label>
+                    <label for="textarea-5"><b>Aufgabe:</b></label>
                     <textarea cols="40" rows="8" id="textarea-5"></textarea>
-                    <label for="date">Datum:</label>
+                    <label for="date"><b>Datum:</b></label>
                     <input type="date" id="date">
-                    <label for="time-2">Uhrzeit:</label>
+                    <label for="time-2"><b>Uhrzeit:</b></label>
                     <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">                        
-                    <p id="msg"></p>
-                    <button id="btn" style="margin: 0 auto;" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-b ui-icon-camera" ></button>
-                    <img id="photo" data-inline="true" style="width:10%" class="img-responsive" src="img/gallery.png">
-                    <button id="btndel" style="margin: 0 auto;" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-btn-b ui-icon-delete" ></button>
+                    <p id="msg" style="display: none"></p>
+                    <button id="btn" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-camera" >Bild hinzufügen</button>
+                    <img id="photo" data-inline="true" class="img-responsive" src="img/gallery.png">
+                    <div id="delpic"></div>
                     <div id="saveedit"></div>      
             </div>
             <div data-role="footer">

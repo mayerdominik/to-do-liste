@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jul 04 17:51:11 CEST 2018
+#Wed Jul 04 20:35:34 CEST 2018
 122.file=C\:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileUploadResult.js
 60.set=ASSET
 129.file=C\:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileWriter.js

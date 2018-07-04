@@ -21,16 +21,24 @@ function newtask() {
         tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
             var len = results.rows.length, i;
             for(i=0;i<len;i++) {
-                let content = "<option value='" + results.rows.item(i).kategorie + "'>" + results.rows.item(i).kategorie + "</option>";
+                let content = "<option class='blue' value='" + results.rows.item(i).kategorie + "'>" + results.rows.item(i).kategorie + "</option>";
                 $("#category").append(content);
             }
             $("#category").selectmenu("refresh");
         }, null);
     })
+    $("#saveedit").html("<button class='ui-btn ui-corner-all' id='save'>Remind Me!</button>");
     document.getElementById('photo').src = "img/gallery.png";
     document.getElementById('photo').style = "width:10%";
-    $("#saveedit").html("<button class='ui-btn' id='save'>Remind Me</button>");
+    console.log($('#photo').attr('src'));
     $("body").pagecontainer("change", "#newtask");
+    console.log($('#photo').attr('src'));
+    if($('#photo').attr('src') != "img/gallery.png"){
+        $('#delpic').html('<button id="btndel"  data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-delete" >Bild löschen</button>');
+        document.getElementById('btndel').addEventListener('click', delphoto);
+    }else{
+        $('#delpic').html("");
+    }
     document.getElementById('save').addEventListener('click', saveData);
 }
 function saveData() {
@@ -188,13 +196,13 @@ function calledit(id) {
           $("#msg").val(datum);
           if(bildlink != "") {
             document.getElementById('photo').src = bildlink;
-            document.getElementById('photo').style = "width:90%";
+            document.getElementById('photo').style = "margin-left:2%; width:96%";
           } else {
 
           }
           
           $("body").pagecontainer("change", "#newtask");
-          $("#saveedit").html("<button class='ui-btn' id='edittask' onclick = 'edittask(\"" + id + "\")'>Änderungen speichern</button>");
+          $("#saveedit").html("<button class='ui-btn ui-corner-all' id='edittask' onclick = 'edittask(\"" + id + "\")'>Remind Me!</button>");
        }}, null);
     })  
 }

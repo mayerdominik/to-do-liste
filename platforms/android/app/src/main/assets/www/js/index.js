@@ -3,7 +3,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     document.getElementById('btn').addEventListener('click', takephoto);
-    document.getElementById('btndel').addEventListener('click', delphoto);
+    
     document.getElementById('photo').addEventListener('click', openFilePicker);
 }
 
@@ -25,8 +25,9 @@ function takephoto(){
 function ftw (imgURI){
         document.getElementById('msg').textContent = imgURI;
         document.getElementById('photo').src = imgURI;
-        document.getElementById('photo').style = "width:100%";
-        
+        document.getElementById('photo').style = "margin-left: 2%; width: 96%; margin-top: 2%; margin-bottom: 2%;";
+        $('#delpic').html('<button id="btndel"  data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-delete" >Bild löschen</button>');
+        document.getElementById('btndel').addEventListener('click', delphoto);
     }
 function wtf (msg){
         document.getElementById('msg').textContent = msg;
@@ -40,5 +41,6 @@ function openFilePicker(selection) {
 function delphoto(){
     document.getElementById('msg').textContent = "img/gallery.png";
     document.getElementById('photo').src = "img/gallery.png";
-    document.getElementById('photo').style = "width:10%";
+    document.getElementById('photo').style = "margin-left: 45%; width: 10%; margin-top: 2%; margin-bottom: 2%;";
+    $('#delpic').html("");
 }
