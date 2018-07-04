@@ -254,31 +254,24 @@ function saveCat1() {
         else{
             catexists=false;
         }
-    if(catexists){
-        alert("Die eingegebene Kategorie existiert bereits");
-    }
-    else{
-    if(newCat == "") {
-        $("#dialog").text("Bitte Kategorienamen eingeben");
-    } else {
-        db.transaction(function (tx) {
-            tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie,  CONSTRAINT name_unique UNIQUE (kategorie))');
-        })
-            let abfrage = iscatexisting(newCat);
-            if(abfrage) {
-                $("#dialog").text("Diese Kategorie exisitert bereits");
+        if(catexists){
+            alert("Die eingegebene Kategorie existiert bereits");
+        }
+        else{
+            if(newCat == "") {
+                $("#dialog").text("Bitte Kategorienamen eingeben");
             } else {
                 db.transaction(function (tx) {
-                    tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);
+                tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie,  CONSTRAINT name_unique UNIQUE (kategorie))');
+                tx.executeSql('INSERT INTO CATS (kategorie) VALUES (?)', [newCat]);
                 })
                 $("#popupcat1").popup( "close" );
                 newtask();
                 alert("Kategorie gespeichert");
                 $('#category').selectmenu("refresh", true);
             }
-            }
-    }
-}, null)
+        }
+    }, null)
 })
 }
 
