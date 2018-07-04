@@ -121,11 +121,9 @@ function showcattasks(kategorie) {
 
 function showtask(id) {
     var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-    
     db.transaction(function (tx) { 
         tx.executeSql('SELECT * FROM LOGS WHERE id=?', [id], function (tx, results) { 
             var len = results.rows.length, i; 
-           
            for (i = 0; i < len; i++) { 
               var content="<tr><th>Kategorie</th><td>" + results.rows.item(i).kategorie + "</td></tr> .\
                             <tr><th>Datum</th><td>" + results.rows.item(i).datum + "</td></tr> .\
