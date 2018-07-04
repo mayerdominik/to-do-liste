@@ -46,6 +46,7 @@
         <div data-role="page" class="container" id="home">
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Willkommen</h1>
+                <a href="#help" data-icon="info" data-iconpos="notext">Help</a>
             </div>
             <div data-role="main"  style="text-align: center; padding-bottom: 2%;">
                 <div class="row">
@@ -70,6 +71,7 @@
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Neue Aufgabe</h1>
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
+                <a href="#help" data-icon="info" data-iconpos="notext">Help</a>
             </div>
             <div data-role="main" style="padding-top: 2%;">            
                 <label for="text-1"><b>Kategorie:</b></label>
@@ -107,7 +109,7 @@
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Kategorien</h1>
                 <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-                <a href="#" id="refreshcategories" onclick="showcategories()" data-icon="refresh" data-iconpos="notext">Refresh</a>
+                <a href="#help" data-icon="info" data-iconpos="notext">Help</a>
             </div>
             <div data-role="main">
                 <div id="mess"></div>
@@ -130,7 +132,7 @@
             <div data-role="header" data-position="fixed" data-theme="b">
                 <h1>Aufgaben</h1>
                         <a href="#home" data-icon="home" data-iconpos="notext">Home</a>
-                        <a href="#" onclick="loadData()" data-icon="refresh" data-iconpos="notext">Refresh</a>
+                        <a href="#help" data-icon="info" data-iconpos="notext">Help</a>
             </div>
             <div data-role="main" class="ui-content">
             <div id = "status" name = "status"></div>
@@ -146,6 +148,7 @@
                 <div data-role="header" data-position="fixed" data-theme="b">
                     <h1>Aufgabe</h1>
                     <a data-rel="back"  data-icon="carat-l" data-iconpos="notext">Back</a>
+                    <a href="#help" data-icon="info" data-iconpos="notext">Help</a>
                 </div>
                 <div data-role="main">
                     <table style="width:100%; margin-top:30px" id="task-table">
@@ -157,6 +160,26 @@
                     <div id="edit"></div>
                     <div id="delete"></div>
                     <a class="ui-btn ui-shadow ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-b ui-btn-inline" style="font-size:30px; padding:5px" data-theme="b" id="derbutton" onclick="loadData()"></a>
+                </div>
+                <div data-role="footer">
+                </div>
+            </div>
+
+            <div data-role="page" class="container" id="help">
+                <div data-role="header" data-position="fixed" data-theme="b">
+                    <h1>Hilfe</h1>
+                    <a data-rel="back" data-icon="carat-1" data-iconpos="notext">Back</a>
+                </div>
+                <div data-role="main">
+                    <h2>Willkommen bei Remind Me!</h2>
+                    <p>Mit unserer App können Sie ganz einfach Aufgaben erstellen und sich erinnern lassen.<br><br>
+                    Gehen Sie dabei wie folgt vor:<br>
+                    Wählen Sie zunächst eine der vordefinierten Kategorien oder erstellen Sie bei Bedarf eine neue.<br>
+                    Anschließend schreiben Sie sich ihre Notiz bzw. Aufgabe auf, an die Sie erinnert werden möchten.<br>
+                    Darauffolgend können Sie ein Datum und eine Uhrzeit angeben, zu der Sie per Benachrichtigung erinnert werden möchten.<br>
+                    Bei Bedarf können Sie auch ein Foto aus ihrer Galerie anhängen oder ein Foto aufnehmen.<br>
+                    Zuletzt folgt noch ein Klick auf "Remind Me!" und schon sind Sie fertig!
+                    </p>
                 </div>
                 <div data-role="footer">
                 </div>

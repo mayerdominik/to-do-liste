@@ -1,4 +1,4 @@
-#Wed Jul 04 23:50:18 CEST 2018
+#Thu Jul 05 00:48:18 CEST 2018
 base.0=C\:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
 file.0=C\:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex
