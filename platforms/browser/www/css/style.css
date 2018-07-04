@@ -29,15 +29,30 @@ th, td {
 }
 #newtaskbtn{
     width: 90%;
+    margin-left: 5%;
+    background-color: rgb(51, 153, 255);
+    color: white;
+    text-shadow: 0 0 0;
+    border-style: solid;
+    border-color: grey;
 }
 #seecategories{
     width: 90%;
+    margin-left: 5%;
+    background-color: rgb(51, 153, 255);
+    color: white;
+    text-shadow: 0 0 0;
+    border-style: solid;
+    border-color: grey;
 }
 #tasksbtn{
     width: 90%;
-}
-#lade{
-    width: 90%;
+    margin-left: 5%;
+    background-color: rgb(51, 153, 255);
+    color: white;
+    text-shadow: 0 0 0;
+    border-style: solid;
+    border-color: grey;
 }
 #textarea-4{
     width: 90%; 
@@ -69,6 +84,32 @@ th, td {
     margin: 0 auto;
 }
 #edittask{
+    background-color: rgb(51, 153, 255);
+    color: white;
+    text-shadow: 0 0 0;
+    border-style: solid;
+    border-color: grey;
+}
+#derbutton {
+    position: fixed;
+    bottom:5px;
+    left:3px;
+}
+.nicebutton {
+    background-color: rgb(51, 153, 255);
+    color: white;
+    text-shadow: 0 0 0;
+    border-style: solid;
+    border-color: grey;
+}
+#cat2 {
+    background-color: rgb(51, 153, 255);
+    color: white;
+    text-shadow: 0 0 0;
+    border-style: solid;
+    border-color: grey;
+}
+#addcategory2 {
     background-color: rgb(51, 153, 255);
     color: white;
     text-shadow: 0 0 0;

@@ -113,9 +113,6 @@
                 <div id="mess"></div>
                 <ul data-role="listview" id="categorylist" data-filter="true" data-filter-placeholder="Suche Kategorie..." data-split-icon="delete">
                 </ul>
-               
-            </div>
-            <div data-role="footer">
                 <a href="#popupcat2" data-rel="popup" data-position-to="window" data-role="button" id="addcategory2" data-transition="pop" >Neu</a>
                 <div data-role="popup" class="popupcat" id="popupcat2" data-theme="a" class="ui-corner-all">
                     <div id="dialog2"></div>
@@ -124,6 +121,8 @@
                         <button id="cat2" class="ui-btn ui-corner-all">Erstellen</button>
                                       
                 </div>
+            </div>
+            <div data-role="footer">
             </div>
         </div>
 
@@ -146,7 +145,7 @@
         <div data-role="page" class="container" id="onetask">
                 <div data-role="header" data-position="fixed" data-theme="b">
                     <h1>Aufgabe</h1>
-                    <a data-rel="back"  data-icon="carat-l" data-iconpos="notext">Home</a>
+                    <a data-rel="back"  data-icon="carat-l" data-iconpos="notext">Back</a>
                 </div>
                 <div data-role="main">
                     <table style="width:100%; margin-top:30px" id="task-table">
@@ -157,9 +156,9 @@
                     <img class="img-responsive" style="width:90%; height: auto; margin: 0 auto" id="zeigephoto">
                     <div id="edit"></div>
                     <div id="delete"></div>
+                    <a class="ui-btn ui-shadow ui-corner-all ui-icon-bullets ui-btn-icon-notext ui-btn-b ui-btn-inline" style="font-size:30px; padding:5px" data-theme="b" id="derbutton" onclick="loadData()"></a>
                 </div>
                 <div data-role="footer">
-                    <a data-icon="bullets" onclick="loadData()" data-iconpos="notext">Aufgaben</a>
                 </div>
             </div>
 

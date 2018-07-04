@@ -1,21 +1,6 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw\\values-sw.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\D065053\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\a6602c37a0d39499df3918df463f5d0b\\res\\values-sw\\values-sw.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw\\values-sw.xml",
             "map": [
                 {
