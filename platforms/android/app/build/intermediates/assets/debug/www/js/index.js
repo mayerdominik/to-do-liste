@@ -26,7 +26,7 @@ function ftw (imgURI){
         document.getElementById('msg').textContent = imgURI;
         document.getElementById('photo').src = imgURI;
         document.getElementById('photo').style = "margin-left: 2%; width: 96%; margin-top: 2%; margin-bottom: 2%;";
-        $('#delpic').html('<button id="btndel"  data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-delete" >Bild löschen</button>');
+        $('#delpic').html('<button id="btndel" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-delete" >Bild löschen</button>');
         document.getElementById('btndel').addEventListener('click', delphoto);
     }
 function wtf (msg){
@@ -39,7 +39,7 @@ function openFilePicker(selection) {
         navigator.camera.getPicture(ftw, wtf, options);
 }
 function delphoto(){
-    document.getElementById('msg').textContent = "img/gallery.png";
+    document.getElementById('msg').textContent = "";
     document.getElementById('photo').src = "img/gallery.png";
     document.getElementById('photo').style = "margin-left: 45%; width: 10%; margin-top: 2%; margin-bottom: 2%;";
     $('#delpic').html("");

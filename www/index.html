@@ -56,10 +56,10 @@
                     <div class="col-sm-5"></div>
                     <label for="textarea-4" id="textarea" class="ui-hidden-accessible">Aufgabe:</label>
                     <textarea cols="40" rows="8" name="textarea-4" id="textarea-4"></textarea>
+                </div>
                 <a id="newtaskbtn" class="ui-btn" href="#newtask" data-role="button" >Neue Aufgabe</a>
                 <a id="seecategories" class="ui-btn" data-role="button" >Kategorien</a>
                 <a id="tasksbtn" class="ui-btn" data-role="button">Aufgaben</a>
-                </div>
             </div>
             <div data-role="footer" style="text-align: center; padding-top: 2%; padding-bottom: 2%;">
             </div>
@@ -83,7 +83,6 @@
                                 <div id="info"></div>
                                 <button id="cat" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check newcat">Erstellen</button>
                             </div>
-                        
                     </div>
                     
                     </div>
@@ -94,7 +93,7 @@
                     <label for="time-2"><b>Uhrzeit:</b></label>
                     <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">                        
                     <p id="msg" style="display: none"></p>
-                    <button id="btn" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-camera" >Bild hinzufügen</button>
+                    <button id="btn" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-camera" >Bild aufnehmen</button>
                     <img id="photo" data-inline="true" class="img-responsive" src="img/gallery.png">
                     <div id="delpic"></div>
                     <div id="saveedit"></div>      
@@ -146,7 +145,7 @@
         <div data-role="page" class="container" id="onetask">
                 <div data-role="header" data-position="fixed" data-theme="b">
                     <h1>Aufgabe</h1>
-                    <a data-rel="back" data-icon="carat-l" data-iconpos="notext">Back</a>
+                    <a data-rel="back"  data-icon="carat-l" data-iconpos="notext">Home</a>
                 </div>
                 <div data-role="main">
                     <table style="width:100%; margin-top:30px" id="task-table">
@@ -159,7 +158,7 @@
                     <div id="delete"></div>
                 </div>
                 <div data-role="footer">
-    
+                    <a data-icon="bullets" onclick="loadData()" data-iconpos="notext">Aufgaben</a>
                 </div>
             </div>
 

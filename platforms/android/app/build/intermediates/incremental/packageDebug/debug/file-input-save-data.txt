@@ -1,15 +1,8 @@
 #Internal package file, do not edit.
-<<<<<<< HEAD
-#Wed Jul 04 20:35:34 CEST 2018
-122.file=C\:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileUploadResult.js
-60.set=ASSET
-129.file=C\:\\Users\\D065053\\Documents\\DHBW\\To-Do-Liste App\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\plugins\\cordova-plugin-file\\www\\FileWriter.js
-=======
-#Wed Jul 04 19:05:02 CEST 2018
+#Wed Jul 04 23:13:50 CEST 2018
 122.file=C\:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png
 60.set=ANDROID_RESOURCE
 129.file=C\:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\layout\\notification_action_tombstone.xml
->>>>>>> 8c8f18414992eb0c5fee2cadce666ff55e5eb4ca
 52.set=ASSET
 53.base=C\:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 44.set=ANDROID_RESOURCE

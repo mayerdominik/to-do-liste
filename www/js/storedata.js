@@ -173,15 +173,26 @@ function calledit(id) {
           $("#date").val(datum);
           $("#time-2").val(uhrzeit);
           $("#textarea-5").val(text);
+          tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
+            var len = results.rows.length, i;
+            for(i=0;i<len;i++) {
+                let content = "<option class='blue' value='" + results.rows.item(i).kategorie + "'>" + results.rows.item(i).kategorie + "</option>";
+                $("#category").append(content);
+            }
+            $("#category").selectmenu('refresh');
+        }, null);
           $("#category").val(kategorie);
-          $("#msg").val(datum);
+          $("#msg").val(bildlink);
           if(bildlink != "") {
-            document.getElementById('photo').src = bildlink;
-            document.getElementById('photo').style = "margin-left:2%; width:96%";
+            document.getElementById("photo").src = bildlink;
+            document.getElementById("photo").style = "margin-left:2%; width:96%";
+            $('#delpic').html('<button id="btndel"  data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-btn-b ui-icon-delete" >Bild löschen</button>');
+            document.getElementById('btndel').addEventListener('click', delphoto);
           } else {
-
+            document.getElementById("photo").src="img/gallery.png";
+            document.getElementById("photo").style="width:10%;";
+            document.getElementById("btndel").style="display:none";
           }
-          
           $("body").pagecontainer("change", "#newtask");
           $("#saveedit").html("<button class='ui-btn ui-corner-all' id='edittask' onclick = 'edittask(\"" + id + "\")'>Remind Me!</button>");
        }}, null);
