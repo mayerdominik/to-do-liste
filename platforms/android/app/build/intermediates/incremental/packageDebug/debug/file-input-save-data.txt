@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Jul 05 00:48:18 CEST 2018
+#Thu Jul 05 01:05:15 CEST 2018
 122.file=C\:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png
 60.set=ANDROID_RESOURCE
 129.file=C\:\\Users\\Dideban\\Documents\\DHBW\\Remind Me\\to-do-liste\\platforms\\android\\app\\build\\intermediates\\res\\debug\\resources-debug.ap_\\res\\layout\\notification_action_tombstone.xml

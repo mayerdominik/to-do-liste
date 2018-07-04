@@ -82,6 +82,7 @@ function loadData() {
     $("#table>li").remove();
     $("#status").text("");
     db.transaction(function (tx) { 
+        tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id INTEGER PRIMARY KEY AUTOINCREMENT, datum integer, uhrzeit integer, text, kategorie, bildlink)'); 
         tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) { 
            var len = results.rows.length, i; 
            msg = "<p>Anzahl der Aufgaben: " + len + "</p>"; 
@@ -221,6 +222,7 @@ function showcategories () {
     $("#mess").html("");
     let db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024); 
     db.transaction(function (tx) {
+        tx.executeSql('CREATE TABLE IF NOT EXISTS CATS (id INTEGER PRIMARY KEY AUTOINCREMENT, kategorie,  CONSTRAINT name_unique UNIQUE (kategorie))');
         tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
             var len = results.rows.length, i;
             var message = "<h2>Anzahl der Kategorien: " + len + "</h2>";
