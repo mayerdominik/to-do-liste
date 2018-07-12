@@ -173,6 +173,7 @@ function calledit(id) {
           $("#date").val(datum);
           $("#time-2").val(uhrzeit);
           $("#textarea-5").val(text);
+          $("#category").html("");
           tx.executeSql('SELECT * FROM CATS', [], function (tx, results) {
             var len = results.rows.length, i;
             for(i=0;i<len;i++) {
